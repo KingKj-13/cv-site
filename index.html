@@ -1,1547 +1,910 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Kshitij Junnarkar — AI Engineer &amp; Founder</title>
-<meta name="description" content="Kshitij Junnarkar — AI Engineer &amp; Founder of EMenu. B.Tech in Artificial Intelligence &amp; Data Science (IBM × SRM University). Building AI systems, computer vision applications, intelligent automation, and scalable SaaS products."/>
+<title>Kshitij Junnarkar — Product Engineer &amp; Founder of EMenu</title>
+<meta name="description" content="Kshitij Junnarkar: AI &amp; Data Science undergrad (IBM × SRM University, class of 2028) and founder of EMenu. Top-30 SRM-wide AI attendance system, Memora research paper, and a restaurant operating system built end to end."/>
 <meta name="author" content="Kshitij Junnarkar"/>
-<meta name="theme-color" content="#080808"/>
+<meta name="theme-color" content="#060607"/>
+<link rel="canonical" href="https://kshitijjunnarkar.netlify.app/"/>
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="Kshitij Junnarkar — AI Engineer &amp; Founder"/>
-<meta property="og:description" content="Building AI systems, computer vision applications, intelligent automation, and scalable SaaS products. Founder of EMenu."/>
+<meta property="og:url" content="https://kshitijjunnarkar.netlify.app/"/>
+<meta property="og:title" content="Kshitij Junnarkar — Product Engineer &amp; Founder of EMenu"/>
+<meta property="og:description" content="Founder of EMenu. Top 30 across SRM universities for AI attendance. Memora research paper. Looking for a software engineering internship for summer 2027."/>
 <meta property="og:locale" content="en_US"/>
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Kshitij Junnarkar — AI Engineer &amp; Founder"/>
-<meta name="twitter:description" content="AI Engineer &amp; Founder of EMenu. Computer vision, LLM systems, and full-stack product development."/>
+<meta name="twitter:title" content="Kshitij Junnarkar — Product Engineer &amp; Founder of EMenu"/>
+<meta name="twitter:description" content="Founder of EMenu. Computer vision, AI research and full-stack products, built end to end."/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIwIiBmaWxsPSIjMDgwODA4Ii8+PHRleHQgeD0iNTAiIHk9IjUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDQiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiPktKPC90ZXh0Pjwvc3ZnPg=="/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.js"></script>
 <style>
-/* ===== CSS VARIABLES ===== */
+/* ===== TOKENS ===== */
 :root {
-  --bg: #080808;
-  --surface: #111;
-  --surface2: #1a1a1a;
-  --border: #222;
-  --text: #f0f0f0;
-  --text-muted: #888;
-  --text-dim: #444;
-  --accent: #fff;
-  --invert: 0;
-  --card-bg: #111;
-  --tag-bg: #1e1e1e;
-  --tag-text: #ccc;
-  --loader-bg: #080808;
-}
-[data-theme="light"] {
-  --bg: #f8f8f8;
-  --surface: #efefef;
-  --surface2: #e5e5e5;
-  --border: #d5d5d5;
-  --text: #111;
-  --text-muted: #555;
-  --text-dim: #bbb;
-  --accent: #000;
-  --invert: 1;
-  --card-bg: #efefef;
-  --tag-bg: #e0e0e0;
-  --tag-text: #333;
-  --loader-bg: #f8f8f8;
+  --bg: #060607;
+  --surface: #0d0d10;
+  --surface2: #141418;
+  --border: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.16);
+  --text: #f2f2f0;
+  --muted: #8d8d93;
+  --dim: #55555b;
+  --accent: #c8ff4d;
+  --accent-ink: #0a0f00;
+  --accent-soft: rgba(200,255,77,0.12);
+  --glow: rgba(200,255,77,0.35);
+  --violet: #8b5cff;
+  --radius: 18px;
+  --pad: clamp(20px, 5vw, 72px);
 }
 
 /* ===== RESET ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; }
 body {
   font-family: 'Syne', sans-serif;
   background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
-  transition: background 0.4s, color 0.4s;
+  -webkit-font-smoothing: antialiased;
 }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 ul { list-style: none; }
+::selection { background: var(--accent); color: var(--accent-ink); }
+.mono {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ===== BACKGROUND: aurora + grid + grain ===== */
+.bg-aurora {
+  position: fixed; inset: 0; z-index: -2; pointer-events: none; overflow: hidden;
+}
+.bg-aurora span {
+  position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.55;
+  animation: drift 22s ease-in-out infinite alternate;
+}
+.bg-aurora span:nth-child(1) { width: 52vw; height: 52vw; left: -12vw; top: -18vw; background: rgba(139,92,255,0.35); }
+.bg-aurora span:nth-child(2) { width: 44vw; height: 44vw; right: -14vw; top: 10vh; background: rgba(200,255,77,0.18); animation-delay: -8s; }
+.bg-aurora span:nth-child(3) { width: 40vw; height: 40vw; left: 30vw; top: 70vh; background: rgba(0,200,255,0.14); animation-delay: -14s; }
+@keyframes drift {
+  0% { transform: translate(0,0) scale(1); }
+  100% { transform: translate(6vw, 8vh) scale(1.15); }
+}
+.bg-grid {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+}
 
 /* ===== LOADER ===== */
 #loader {
-  position: fixed;
-  inset: 0;
-  background: var(--loader-bg);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  perspective: 600px;
-  overflow: hidden;
+  position: fixed; inset: 0; z-index: 9999; background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s;
 }
+#loader.done { opacity: 0; visibility: hidden; }
 .loader-kj {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  position: relative;
-}
-.loader-k, .loader-j {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(100px, 25vw, 220px);
+  font-size: clamp(110px, 24vw, 220px);
   line-height: 1;
-  color: var(--text);
-  display: inline-block;
-  animation: none;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
+  display: flex; gap: 4px;
 }
-.loader-k {
-  transform-origin: right center;
-  animation: splitLeft 0.7s cubic-bezier(0.77,0,0.175,1) 1.2s forwards;
-}
-.loader-j {
-  transform-origin: left center;
-  animation: splitRight 0.7s cubic-bezier(0.77,0,0.175,1) 1.2s forwards;
-}
-.loader-line {
-  position: absolute;
-  left: 50%; top: 10%;
-  width: 2px;
-  height: 80%;
-  background: var(--text-muted);
-  transform: translateX(-50%) scaleY(0);
-  animation: lineGrow 0.5s ease 0.5s forwards;
-}
-.loader-tagline {
-  position: absolute;
-  bottom: 18%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  opacity: 0;
-  animation: fadeInTag 0.6s ease 0.8s forwards;
-  white-space: nowrap;
-}
-
-@keyframes lineGrow {
-  to { transform: translateX(-50%) scaleY(1); }
-}
-@keyframes fadeInTag {
-  to { opacity: 1; }
-}
-@keyframes splitLeft {
-  0% { transform: rotateY(0deg) translateX(0); opacity: 1; }
-  100% { transform: rotateY(-90deg) translateX(-60px); opacity: 0; }
-}
-@keyframes splitRight {
-  0% { transform: rotateY(0deg) translateX(0); opacity: 1; }
-  100% { transform: rotateY(90deg) translateX(60px); opacity: 0; }
-}
-#loader.fade-out {
-  animation: loaderFade 0.5s ease 2.1s forwards;
-}
-@keyframes loaderFade {
-  to { opacity: 0; pointer-events: none; }
-}
+.loader-kj span { display: inline-block; animation: rise 0.7s cubic-bezier(.2,.8,.2,1) both; }
+.loader-kj span:last-child { color: var(--accent); animation-delay: 0.12s; }
+@keyframes rise { from { transform: translateY(40%); opacity: 0; } to { transform: none; opacity: 1; } }
 
 /* ===== HEADER ===== */
+#scroll-progress {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0; z-index: 300;
+  background: linear-gradient(90deg, var(--violet), var(--accent));
+}
 header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 clamp(20px, 5vw, 60px);
-  height: 60px;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg);
-  backdrop-filter: blur(10px);
-  transition: background 0.4s, border-color 0.4s;
-}
-.logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px;
-  letter-spacing: 2px;
-}
-nav {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-nav a {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  transition: color 0.2s;
-}
-nav a:hover { color: var(--text); }
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-#theme-toggle {
-  background: none;
+  position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
+  width: min(1180px, calc(100% - 28px));
+  z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 12px 10px 22px;
   border: 1px solid var(--border);
-  color: var(--text);
-  cursor: pointer;
-  padding: 6px 8px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  transition: border-color 0.2s, background 0.2s;
+  border-radius: 999px;
+  background: rgba(10,10,12,0.6);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
 }
-#theme-toggle:hover { background: var(--surface); }
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--text);
-  cursor: pointer;
-  padding: 4px;
+.logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 1px; }
+.logo b { color: var(--accent); font-weight: 400; }
+nav { display: flex; gap: 4px; }
+nav a {
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--muted); padding: 8px 14px; border-radius: 999px; transition: color .2s, background .2s;
 }
-
-/* ===== MOBILE NAV ===== */
+nav a:hover, nav a.active { color: var(--text); background: rgba(255,255,255,0.06); }
+.header-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent); color: var(--accent-ink);
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 10px 18px; border-radius: 999px;
+  transition: box-shadow .25s, transform .25s;
+}
+.header-cta:hover { box-shadow: 0 0 28px var(--glow); transform: translateY(-1px); }
+.hamburger { display: none; background: none; border: 0; color: var(--text); cursor: pointer; padding: 6px; }
 .mobile-nav {
-  display: none;
-  position: fixed;
-  top: 60px; left: 0; right: 0;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  z-index: 99;
-  padding: 20px clamp(20px, 5vw, 60px);
-  flex-direction: column;
-  gap: 20px;
+  position: fixed; top: 76px; left: 14px; right: 14px; z-index: 199;
+  display: none; flex-direction: column; gap: 4px; padding: 12px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: rgba(10,10,12,0.92); backdrop-filter: blur(18px);
 }
 .mobile-nav.open { display: flex; }
-.mobile-nav a {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
+.mobile-nav a { padding: 14px 16px; border-radius: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+.mobile-nav a:hover { background: rgba(255,255,255,0.05); color: var(--text); }
 
 /* ===== HERO ===== */
 #hero {
   min-height: 100vh;
-  padding-top: 60px;
+  padding: 130px var(--pad) 60px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-  overflow: hidden;
-}
-.hero-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(40px, 8vw, 100px) clamp(20px, 5vw, 60px);
-  border-right: 1px solid var(--border);
-}
-.hero-eyebrow {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 24px;
-  display: flex;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: clamp(32px, 5vw, 80px);
   align-items: center;
-  gap: 10px;
+  max-width: 1320px; margin: 0 auto;
 }
-.hero-eyebrow::before {
-  content: '';
-  display: inline-block;
-  width: 30px;
-  height: 1px;
-  background: var(--text-muted);
+.status-pill {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 14px 8px 12px; border-radius: 999px;
+  border: 1px solid var(--border-strong); background: rgba(255,255,255,0.03);
+  color: var(--muted); margin-bottom: 28px;
 }
+.status-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 var(--glow); animation: ping 2s infinite; }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 var(--glow); } 80%,100% { box-shadow: 0 0 0 10px rgba(200,255,77,0); } }
 .hero-name {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(64px, 10vw, 130px);
-  line-height: 0.9;
-  letter-spacing: -2px;
-  margin-bottom: 28px;
+  font-size: clamp(76px, 12.5vw, 188px);
+  line-height: 0.84;
+  letter-spacing: -1px;
 }
 .hero-name span { display: block; }
-.hero-role {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: clamp(12px, 1.5vw, 15px);
-  color: var(--text-muted);
-  line-height: 1.8;
-  max-width: 420px;
-  margin-bottom: 48px;
+.hero-name .outline { color: transparent; -webkit-text-stroke: 1.5px rgba(255,255,255,0.55); }
+.hero-rotator {
+  margin-top: 28px;
+  font-size: clamp(20px, 2.6vw, 32px);
+  font-weight: 700;
+  line-height: 1.25;
+  min-height: 2.5em;
 }
-.hero-ctas {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+.hero-rotator .muted { color: var(--muted); font-weight: 500; }
+#rotator-word {
+  background: linear-gradient(90deg, var(--accent), #7dffb0 60%, #8be9ff);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.btn-primary {
-  background: var(--text);
-  color: var(--bg);
-  border: 1px solid var(--text);
-  padding: 12px 28px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.caret { display: inline-block; width: 3px; height: 0.95em; background: var(--accent); margin-left: 4px; vertical-align: -0.1em; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.hero-sub {
+  margin-top: 18px; max-width: 560px;
+  color: var(--muted); font-size: 16px; line-height: 1.7;
 }
-.btn-primary:hover { background: transparent; color: var(--text); }
-.btn-secondary {
-  background: transparent;
-  color: var(--text);
-  border: 1px solid var(--border);
-  padding: 12px 28px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: border-color 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.hero-sub strong { color: var(--text); font-weight: 600; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  padding: 15px 22px; border-radius: 999px; border: 1px solid var(--border-strong);
+  transition: transform .25s, box-shadow .25s, background .25s, border-color .25s;
 }
-.btn-secondary:hover { border-color: var(--text); }
-.hero-right {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  background: var(--surface);
-}
-.hero-photo-wrap {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 500px;
-}
-.hero-photo-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  filter: none;
-  object-position: top center;
-  object-fit: cover;
-  height: 100%;
-}
+.btn:hover { transform: translateY(-2px); border-color: var(--text); }
+.btn-primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 500; }
+.btn-primary:hover { box-shadow: 0 10px 40px var(--glow); border-color: var(--accent); }
 
-.hero-stats {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid var(--border);
-  background: var(--bg);
+.hero-visual { position: relative; }
+.photo-frame {
+  position: relative; border-radius: 28px; overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  box-shadow: 0 40px 120px rgba(139,92,255,0.25), 0 0 0 1px rgba(255,255,255,0.04) inset;
+}
+.photo-frame::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(6,6,7,0.85));
+}
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.photo-ring {
+  position: absolute; inset: -14px; border-radius: 36px; z-index: -1;
+  background: conic-gradient(from var(--angle, 0deg), var(--violet), var(--accent), #00c8ff, var(--violet));
+  filter: blur(28px); opacity: 0.45;
+  animation: spin 10s linear infinite;
+}
+@property --angle { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+@keyframes spin { to { --angle: 360deg; } }
+.photo-caption {
+  position: absolute; left: 20px; right: 20px; bottom: 18px; z-index: 2;
+  display: flex; justify-content: space-between; align-items: end;
+}
+.photo-caption .mono { color: var(--muted); font-size: 10px; }
+.float-badge {
+  position: absolute; z-index: 3;
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 14px; border-radius: 14px;
+  background: rgba(14,14,18,0.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+  animation: bob 6s ease-in-out infinite;
+  white-space: nowrap;
+}
+.float-badge .ico { width: 32px; height: 32px; border-radius: 9px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); }
+.float-badge b { display: block; font-size: 13px; }
+.float-badge small { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+.fb-1 { top: 8%; left: -18%; }
+.fb-2 { top: 44%; right: -14%; animation-delay: -2s; }
+.fb-3 { bottom: 14%; left: -12%; animation-delay: -4s; }
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* ===== STATS ===== */
+.stats {
+  max-width: 1320px; margin: 0 auto; padding: 0 var(--pad);
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
 }
 .stat {
-  padding: 20px;
-  border-right: 1px solid var(--border);
-  text-align: center;
+  padding: 26px 24px; border-radius: var(--radius);
+  border: 1px solid var(--border); background: rgba(13,13,16,0.6);
 }
-.stat:last-child { border-right: none; }
-.stat-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 36px;
-  display: block;
-}
-.stat-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
+.stat-num { font-family: 'Bebas Neue', sans-serif; font-size: clamp(44px, 5vw, 64px); line-height: 1; }
+.stat-num em { font-style: normal; color: var(--accent); }
+.stat-label { margin-top: 8px; color: var(--muted); font-size: 10.5px; }
 
-/* ===== SECTION COMMONS ===== */
-section {
-  padding: clamp(60px, 10vw, 120px) clamp(20px, 5vw, 60px);
-  border-top: 1px solid var(--border);
+/* ===== MARQUEE ===== */
+.marquee {
+  margin-top: 72px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  overflow: hidden; padding: 20px 0;
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
 }
-.section-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.section-label::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
-h2.section-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(48px, 7vw, 96px);
-  line-height: 0.95;
-  letter-spacing: -1px;
-  margin-bottom: clamp(40px, 6vw, 80px);
-}
+.marquee-track { display: flex; gap: 48px; width: max-content; animation: scroll 38s linear infinite; }
+.marquee-track span { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 1px; color: var(--dim); display: inline-flex; align-items: center; gap: 48px; }
+.marquee-track span::after { content: '✦'; font-size: 14px; color: var(--accent); }
+@keyframes scroll { to { transform: translateX(-50%); } }
 
-/* ===== ABOUT ===== */
-#about .about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
+/* ===== SECTIONS ===== */
+section.block { max-width: 1320px; margin: 0 auto; padding: clamp(80px, 11vw, 140px) var(--pad) 0; }
+.kicker { display: flex; align-items: center; gap: 14px; color: var(--accent); margin-bottom: 18px; }
+.kicker::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(54px, 8vw, 112px);
+  line-height: 0.9; letter-spacing: -0.5px;
 }
-.about-bio {
-  font-size: clamp(15px, 1.8vw, 19px);
-  line-height: 1.8;
-  color: var(--text-muted);
-}
-.about-bio strong { color: var(--text); }
-.about-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.meta-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 20px;
+.section-title .outline { color: transparent; -webkit-text-stroke: 1.2px rgba(255,255,255,0.5); }
+.section-intro { color: var(--muted); max-width: 620px; margin-top: 20px; font-size: 16px; line-height: 1.7; }
+.section-head { margin-bottom: clamp(36px, 5vw, 64px); display: flex; justify-content: space-between; align-items: end; gap: 32px; flex-wrap: wrap; }
+
+/* ===== TILES (shared) ===== */
+.tile {
+  position: relative; overflow: hidden;
+  border-radius: var(--radius);
   border: 1px solid var(--border);
-  background: var(--card-bg);
+  background: linear-gradient(180deg, rgba(20,20,24,0.9), rgba(12,12,15,0.9));
+  padding: 28px;
+  transition: border-color .3s, transform .3s;
+  isolation: isolate;
 }
-.meta-item-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  min-width: 80px;
+.tile::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity .3s;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(200,255,77,0.10), transparent 60%);
 }
-.meta-item-value {
-  font-size: 14px;
-  line-height: 1.5;
+.tile:hover { border-color: var(--border-strong); transform: translateY(-3px); }
+.tile:hover::before { opacity: 1; }
+
+/* ===== BENTO ===== */
+.bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
+.b-emenu { grid-column: span 7; grid-row: span 2; }
+.b-att { grid-column: span 5; }
+.b-mem { grid-column: span 5; }
+.b-4 { grid-column: span 4; }
+.tile-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 22px; }
+.badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border-strong); color: var(--muted);
 }
+.badge.hot { color: var(--accent); border-color: rgba(200,255,77,0.4); background: var(--accent-soft); }
+.badge.violet { color: #c3b0ff; border-color: rgba(139,92,255,0.45); background: rgba(139,92,255,0.12); }
+.tile-icon { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: rgba(255,255,255,0.05); color: var(--text); border: 1px solid var(--border); }
+.tile h3 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(34px, 3.4vw, 46px); line-height: 0.95; letter-spacing: 0.3px; margin-bottom: 12px; }
+.b-emenu h3 { font-size: clamp(56px, 6vw, 88px); }
+.tile p { color: var(--muted); font-size: 14px; line-height: 1.7; }
+.tile p strong { color: var(--text); font-weight: 600; }
+.tile .lead { color: var(--text); font-size: 15.5px; margin-bottom: 10px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+.tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.5px; padding: 5px 9px; border-radius: 7px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #c9c9cf; }
+.links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.link {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 9px 13px; border-radius: 999px; border: 1px solid var(--border-strong); color: var(--text);
+  transition: background .2s, color .2s, border-color .2s;
+}
+.link:hover { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.role-note { margin-top: 14px; padding: 12px 14px; border-radius: 12px; background: rgba(139,92,255,0.08); border: 1px solid rgba(139,92,255,0.25); font-size: 13px; line-height: 1.6; color: #d8d0ff; }
+.role-note b { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 1.5px; text-transform: uppercase; color: #b9a6ff; margin-right: 6px; font-weight: 500; }
+
+/* EMenu flow diagram */
+.flow { margin-top: 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; position: relative; }
+.flow::before {
+  content: ''; position: absolute; left: 12%; right: 12%; top: 26px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  background-size: 200% 100%; animation: flowline 3s linear infinite; opacity: 0.6;
+}
+@keyframes flowline { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+.flow-node { position: relative; text-align: center; padding: 14px 8px; border-radius: 14px; border: 1px solid var(--border); background: rgba(6,6,7,0.7); }
+.flow-node .ico { width: 26px; height: 26px; margin: 0 auto 8px; color: var(--accent); }
+.flow-node b { display: block; font-size: 13px; }
+.flow-node small { display: block; font-size: 11px; color: var(--muted); margin-top: 3px; line-height: 1.4; }
+.emenu-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; }
+.emenu-meta div { padding: 14px; border-radius: 14px; border: 1px solid var(--border); }
+.emenu-meta b { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 0.5px; }
+.emenu-meta small { color: var(--muted); font-size: 11px; line-height: 1.4; display: block; }
+
+/* Attendance metrics */
+.metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 18px 0 14px; }
+.metric { padding: 16px; border-radius: 14px; background: var(--accent-soft); border: 1px solid rgba(200,255,77,0.25); }
+.metric b { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 48px; line-height: 0.9; color: var(--accent); }
+.metric small { display: block; margin-top: 6px; font-size: 11px; color: #d8e8b8; line-height: 1.4; }
+
+/* Memora graph */
+.memora-graph { position: absolute; right: -20px; top: -10px; width: 210px; height: 170px; opacity: 0.55; z-index: -1; }
+.memora-graph line { stroke: rgba(139,92,255,0.6); stroke-width: 1; }
+.memora-graph circle { fill: #b9a6ff; }
+.memora-graph circle.pulse { animation: node 2.4s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+@keyframes node { 50% { transform: scale(1.8); opacity: 0.5; } }
+
+/* ===== MORE PROJECTS ===== */
+.more-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+.more-item { padding: 20px 22px; }
+.more-item .row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+.more-item b { font-size: 16px; }
+.more-item .mono { font-size: 9px; color: var(--muted); white-space: nowrap; }
+.more-item p { font-size: 13px; }
+.more-item a.mini { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); }
 
 /* ===== EXPERIENCE ===== */
-#experience .exp-item {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 40px;
-  padding: 40px 0;
-  border-bottom: 1px solid var(--border);
-}
-#experience .exp-item:first-of-type { border-top: 1px solid var(--border); }
-.exp-date {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 1px;
-  color: var(--text-muted);
-  padding-top: 4px;
-}
-.exp-company {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px;
-  letter-spacing: 1px;
-  margin-bottom: 4px;
-}
-.exp-role {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  letter-spacing: 2px;
-  color: var(--text-muted);
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-.exp-points { display: flex; flex-direction: column; gap: 10px; }
-.exp-points li {
-  font-size: 14px;
-  color: var(--text-muted);
-  line-height: 1.6;
-  padding-left: 20px;
-  position: relative;
-}
-.exp-points li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--text-dim);
-}
-.exp-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-.tag {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 1px;
-  padding: 4px 10px;
-  border: 1px solid var(--border);
-  color: var(--tag-text);
-  background: var(--tag-bg);
-}
+.exp { display: grid; grid-template-columns: 300px 1fr; gap: 0; padding: 0; }
+.exp-side { padding: 32px; border-right: 1px solid var(--border); background: rgba(200,255,77,0.03); }
+.exp-side .when { color: var(--accent); }
+.exp-side h3 { font-family: 'Bebas Neue', sans-serif; font-size: 64px; line-height: 0.9; margin: 16px 0 8px; }
+.exp-side .role { color: var(--muted); }
+.exp-body { padding: 32px; }
+.exp-body li { position: relative; padding-left: 26px; margin-bottom: 14px; color: var(--muted); font-size: 15px; line-height: 1.65; }
+.exp-body li::before { content: ''; position: absolute; left: 0; top: 0.62em; width: 12px; height: 1px; background: var(--accent); }
+.exp-body li strong { color: var(--text); font-weight: 600; }
 
-/* ===== PROJECTS ===== */
-#projects .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 1px;
-  border: 1px solid var(--border);
-  background: var(--border);
-}
-.project-card {
-  background: var(--card-bg);
-  padding: 36px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  transition: background 0.2s;
-  position: relative;
-  overflow: hidden;
-}
-.project-card:hover { background: var(--surface2); }
-.project-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--text);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s;
-}
-.project-card:hover::before { transform: scaleX(1); }
-.project-status {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-.project-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px;
-  letter-spacing: 0.5px;
-  line-height: 1;
-}
-.project-desc {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.7;
-  flex: 1;
-}
-.project-stack { display: flex; flex-wrap: wrap; gap: 6px; }
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  transition: color 0.2s;
-  margin-top: 8px;
-}
-.project-link:hover { color: var(--text); }
+/* ===== PROCESS ===== */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.step .num { font-family: 'Bebas Neue', sans-serif; font-size: 72px; line-height: 0.8; color: transparent; -webkit-text-stroke: 1px rgba(200,255,77,0.6); margin-bottom: 18px; }
+.step h4 { font-size: 18px; margin-bottom: 10px; }
 
 /* ===== SKILLS ===== */
-#skills .skills-container {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  border: 1px solid var(--border);
-}
-.skill-row {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  border-bottom: 1px solid var(--border);
-  min-height: 70px;
-}
-.skill-row:last-child { border-bottom: none; }
-.skill-category {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  padding: 24px 24px 24px 28px;
-  border-right: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  background: var(--surface);
-}
-.skill-items {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  padding: 20px 28px;
-}
-.skill-pill {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  padding: 6px 14px;
-  border: 1px solid var(--border);
-  color: var(--text);
-  background: var(--card-bg);
-  transition: background 0.2s, border-color 0.2s;
-}
-.skill-pill:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
+.skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.skill-group h4 { display: flex; align-items: center; gap: 10px; font-size: 11px; color: var(--muted); margin-bottom: 16px; }
+.skill-group h4 i { color: var(--accent); }
+.pills { display: flex; flex-wrap: wrap; gap: 7px; }
+.pill { font-size: 13px; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--border-strong); transition: background .2s, color .2s, border-color .2s; }
+.pill:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
 
-/* ===== ACHIEVEMENTS ===== */
-#achievements .ach-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1px;
-  border: 1px solid var(--border);
-  background: var(--border);
-}
-.ach-item {
-  background: var(--card-bg);
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.ach-icon { color: var(--text-muted); }
-.ach-text {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--text-muted);
-}
-.ach-text strong { color: var(--text); }
+/* ===== EDUCATION & CREDENTIALS ===== */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.list-tile { padding: 8px 28px; }
+.list-tile h4 { padding: 22px 0 6px; color: var(--muted); font-size: 11px; }
+.li { display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 18px 0; border-top: 1px solid var(--border); }
+.li b { display: block; font-size: 16px; }
+.li small { display: block; color: var(--muted); font-size: 13px; margin-top: 4px; line-height: 1.5; }
+.li .when { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); white-space: nowrap; }
+.li.highlight b { color: var(--accent); }
 
-/* ===== CERTIFICATIONS ===== */
-#certifications .cert-list {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--border);
+/* ===== BEYOND CODE ===== */
+.beyond { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 18px; border-radius: 999px; border: 1px solid var(--border); background: rgba(13,13,16,0.6);
+  font-size: 14px; color: var(--muted);
 }
-.cert-item {
-  display: grid;
-  grid-template-columns: 80px 1fr auto;
-  gap: 24px;
-  align-items: center;
-  padding: 24px 28px;
-  border-bottom: 1px solid var(--border);
-  transition: background 0.2s;
-}
-.cert-item:last-child { border-bottom: none; }
-.cert-item:hover { background: var(--surface); }
-.cert-year {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 24px;
-  color: var(--text-dim);
-}
-.cert-name { font-size: 15px; font-weight: 600; }
-.cert-issuer {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  color: var(--text-muted);
-  margin-top: 4px;
-}
-
-/* ===== EDUCATION ===== */
-#education .edu-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  border: 1px solid var(--border);
-}
-.edu-item {
-  display: grid;
-  grid-template-columns: 1fr 200px;
-  gap: 20px;
-  padding: 32px 28px;
-  border-bottom: 1px solid var(--border);
-  align-items: start;
-  transition: background 0.2s;
-}
-.edu-item:last-child { border-bottom: none; }
-.edu-item:hover { background: var(--surface); }
-.edu-school {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 22px;
-  letter-spacing: 0.5px;
-  margin-bottom: 6px;
-}
-.edu-degree {
-  font-size: 14px;
-  color: var(--text-muted);
-  margin-bottom: 4px;
-}
-.edu-location {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: var(--text-dim);
-  text-transform: uppercase;
-}
-.edu-date {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  color: var(--text-muted);
-  text-align: right;
-}
+.chip i { color: var(--accent); }
+.chip strong { color: var(--text); font-weight: 600; }
 
 /* ===== CONTACT ===== */
-#contact {
-  text-align: center;
-  padding: clamp(80px, 12vw, 160px) clamp(20px, 5vw, 60px);
+#contact { text-align: center; padding-bottom: clamp(80px, 10vw, 140px); }
+.contact-card {
+  position: relative; overflow: hidden; border-radius: 32px;
+  border: 1px solid var(--border-strong);
+  padding: clamp(48px, 8vw, 110px) var(--pad);
+  background: radial-gradient(ellipse at 50% 120%, rgba(200,255,77,0.18), transparent 60%), linear-gradient(180deg, #0f0f13, #08080a);
 }
-.contact-big {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(48px, 8vw, 110px);
-  line-height: 0.95;
-  letter-spacing: -1px;
-  margin-bottom: 40px;
-}
-.contact-sub {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-bottom: 48px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.8;
-}
-.contact-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.contact-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid var(--border);
-  padding: 14px 28px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
-}
-.contact-link:hover {
-  border-color: var(--text);
-  color: var(--text);
-  background: var(--surface);
-}
-.contact-link.primary {
-  background: var(--text);
-  color: var(--bg);
-  border-color: var(--text);
-}
-.contact-link.primary:hover { background: transparent; color: var(--text); }
+.contact-big { font-family: 'Bebas Neue', sans-serif; font-size: clamp(64px, 11vw, 168px); line-height: 0.86; }
+.contact-big span { color: var(--accent); }
+.contact-sub { color: var(--muted); max-width: 560px; margin: 26px auto 38px; font-size: 16px; line-height: 1.7; }
+.contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
 
-/* ===== FOOTER ===== */
 footer {
-  border-top: 1px solid var(--border);
-  padding: 32px clamp(20px, 5vw, 60px);
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 20px;
-}
-.footer-left {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  color: var(--text-muted);
-  letter-spacing: 1px;
-}
-.footer-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 24px;
-  text-align: center;
-}
-.footer-right {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  color: var(--text-muted);
-  text-align: right;
-  letter-spacing: 1px;
+  max-width: 1320px; margin: 0 auto; padding: 28px var(--pad) 40px;
+  display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  color: var(--dim); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1px;
 }
 
-/* ===== SCROLL REVEAL ===== */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: none;
-}
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
+/* ===== REVEAL ===== */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1); }
+.reveal.visible { opacity: 1; transform: none; }
+.d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; }
 
-/* ===== SCROLLBAR ===== */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border); }
+#to-top {
+  position: fixed; right: 22px; bottom: 22px; z-index: 150;
+  width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(14,14,18,0.8); border: 1px solid var(--border-strong); color: var(--text); cursor: pointer;
+  opacity: 0; pointer-events: none; transform: translateY(10px); transition: opacity .3s, transform .3s;
+}
+#to-top.show { opacity: 1; pointer-events: auto; transform: none; }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
-  #hero { grid-template-columns: 1fr; }
-  .hero-right { min-height: 400px; border-top: 1px solid var(--border); }
-  .hero-left { border-right: none; }
-  #about .about-grid { grid-template-columns: 1fr; }
-  #experience .exp-item { grid-template-columns: 1fr; gap: 8px; }
-  .cert-item { grid-template-columns: 60px 1fr; }
-  .cert-item > .btn-secondary { display: none; }
-  footer { grid-template-columns: 1fr; text-align: center; }
-  .footer-right { text-align: center; }
+@media (max-width: 1080px) {
   nav { display: none; }
-  .hamburger { display: flex; }
-  .edu-item { grid-template-columns: 1fr; }
-  .edu-date { text-align: left; }
-  .skill-row { grid-template-columns: 1fr; }
-  .skill-category { border-right: none; border-bottom: 1px solid var(--border); min-height: unset; padding: 14px 20px; }
+  .hamburger { display: inline-flex; }
+  .header-cta { display: none; }
+  #hero { grid-template-columns: 1fr; padding-top: 120px; }
+  .hero-visual { max-width: 420px; width: 100%; margin: 20px auto 0; }
+  .fb-1 { left: -6%; } .fb-2 { right: -6%; } .fb-3 { left: -4%; }
+  .b-emenu, .b-att, .b-mem { grid-column: span 12; grid-row: auto; }
+  .b-4 { grid-column: span 6; }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .skills { grid-template-columns: repeat(2, 1fr); }
+  .exp { grid-template-columns: 1fr; }
+  .exp-side { border-right: 0; border-bottom: 1px solid var(--border); }
 }
-@media (max-width: 600px) {
-  .hero-stats { grid-template-columns: 1fr 1fr; }
-  .stat:nth-child(3) { grid-column: span 2; border-right: none; border-top: 1px solid var(--border); }
-  .hero-ctas { flex-direction: column; }
-  .contact-links { flex-direction: column; }
-  .contact-link { width: 100%; justify-content: center; }
+@media (max-width: 680px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .b-4 { grid-column: span 12; }
+  .steps, .skills, .two-col { grid-template-columns: 1fr; }
+  .flow { grid-template-columns: repeat(2, 1fr); }
+  .flow::before { display: none; }
+  .emenu-meta { grid-template-columns: 1fr; }
+  .float-badge { padding: 9px 11px; }
+  .fb-1 { left: -2%; top: 4%; } .fb-2 { right: -2%; } .fb-3 { left: -2%; bottom: 18%; }
+  .hero-ctas .btn { flex: 1 1 auto; justify-content: center; }
+  .tile { padding: 22px; }
+  .list-tile { padding: 4px 22px; }
+  .exp-side, .exp-body { padding: 24px; }
 }
-
-/* ===== SCROLL PROGRESS ===== */
-#scroll-progress {
-  position: fixed;
-  top: 0; left: 0;
-  height: 2px;
-  width: 0;
-  background: var(--text);
-  z-index: 200;
-  transition: width 0.1s linear;
-}
-
-/* ===== NAV ACTIVE STATE ===== */
-nav a.active { color: var(--text); }
-
-/* ===== PROJECT FILTERS ===== */
-.project-filters {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 44px;
-}
-.filter-btn {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 9px 18px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
-}
-.filter-btn:hover { border-color: var(--text); color: var(--text); }
-.filter-btn.active {
-  background: var(--text);
-  color: var(--bg);
-  border-color: var(--text);
-}
-.filter-count {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: var(--text-dim);
-  margin-left: auto;
-}
-.project-card.is-hidden { display: none; }
-
-/* ===== BACK TO TOP ===== */
-#to-top {
-  position: fixed;
-  bottom: 28px; right: 28px;
-  width: 44px; height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text);
-  cursor: pointer;
-  opacity: 0;
-  transform: translateY(12px);
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.2s ease, background 0.2s ease;
-  z-index: 150;
-}
-#to-top.show { opacity: 1; transform: none; pointer-events: auto; }
-#to-top:hover { border-color: var(--text); background: var(--surface2); }
-
-@media (max-width: 600px) {
-  #to-top { bottom: 18px; right: 18px; width: 40px; height: 40px; }
-  .filter-count { display: none; }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  #scroll-progress, #to-top, .filter-btn { transition: none; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
 }
-
 </style>
 </head>
 <body>
 
+<div class="bg-aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="bg-grid" aria-hidden="true"></div>
 <div id="scroll-progress"></div>
 
-<!-- LOADER -->
-<div id="loader">
-  <div class="loader-kj">
-    <div class="loader-line"></div>
-    <span class="loader-k">K</span>
-    <span class="loader-j">J</span>
-  </div>
-  <div class="loader-tagline">AI Engineer &amp; Founder</div>
-</div>
+<div id="loader" aria-hidden="true"><div class="loader-kj"><span>K</span><span>J</span></div></div>
 
 <!-- HEADER -->
 <header>
-  <a href="#hero" class="logo">KJ</a>
+  <a href="#hero" class="logo">KJ<b>.</b></a>
   <nav>
-    <a href="#about">About</a>
+    <a href="#work">Work</a>
     <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
+    <a href="#process">Process</a>
     <a href="#skills">Skills</a>
-    <a href="#achievements">Achievements</a>
-    <a href="#contact">Contact</a>
+    <a href="#education">Education</a>
   </nav>
-  <div class="header-actions">
-    <button id="theme-toggle" aria-label="Toggle theme">
-      <i data-lucide="sun" width="16" height="16"></i>
-    </button>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <i data-lucide="menu" width="22" height="22"></i>
-    </button>
-  </div>
+  <a href="#contact" class="header-cta"><i data-lucide="send" width="13" height="13"></i>Let's talk</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><i data-lucide="menu" width="22" height="22"></i></button>
 </header>
-
-<!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobile-nav">
-  <a href="#about" class="mobile-link">About</a>
-  <a href="#experience" class="mobile-link">Experience</a>
-  <a href="#projects" class="mobile-link">Projects</a>
-  <a href="#skills" class="mobile-link">Skills</a>
-  <a href="#achievements" class="mobile-link">Achievements</a>
-  <a href="#contact" class="mobile-link">Contact</a>
+  <a href="#work">Work</a>
+  <a href="#experience">Experience</a>
+  <a href="#process">Process</a>
+  <a href="#skills">Skills</a>
+  <a href="#education">Education</a>
+  <a href="#contact">Contact</a>
 </div>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">Johannesburg, South Africa</div>
-    <h1 class="hero-name">
-      <span>Kshitij</span>
-      <span>Junnarkar</span>
-    </h1>
-    <p class="hero-role">
-      B.Tech specializing in Artificial Intelligence &amp; Data Science in collaboration with IBM @ SRM University • Founder of EMenu • Building AI systems, computer vision applications, intelligent automation platforms, and scalable software products.
-    </p>
-    <div class="hero-ctas">
-      <a href="#projects" class="btn-primary">
-        <i data-lucide="arrow-down" width="14" height="14"></i>
-        View Work
-      </a>
-      <a href="#contact" class="btn-secondary">
-        <i data-lucide="mail" width="14" height="14"></i>
-        Get in Touch
-      </a>
+  <div>
+    <div class="status-pill mono reveal"><span class="dot"></span>Open to SWE internships · Summer 2027</div>
+    <h1 class="hero-name reveal d1"><span>Kshitij</span><span class="outline">Junnarkar</span></h1>
+    <div class="hero-rotator reveal d2"><span class="muted">I build </span><span id="rotator-word">a restaurant operating system.</span><span class="caret"></span></div>
+    <p class="hero-sub reveal d3">AI &amp; Data Science at <strong>SRM University (with IBM)</strong>, class of 2028. <strong>Founder of EMenu.</strong> I find the real problem, ship the fix, and own the outcome.</p>
+    <div class="hero-ctas reveal d3">
+      <a href="#work" class="btn btn-primary"><i data-lucide="arrow-down-right" width="14" height="14"></i>See my work</a>
+      <a href="https://github.com/KingKj-13" target="_blank" rel="noopener" class="btn"><i data-lucide="github" width="14" height="14"></i>GitHub</a>
+      <a href="https://www.linkedin.com/in/kshitij-junnarkar-96aa20301/" target="_blank" rel="noopener" class="btn"><i data-lucide="linkedin" width="14" height="14"></i>LinkedIn</a>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-photo-wrap">
+  <div class="hero-visual reveal d2">
+    <div class="photo-ring"></div>
+    <div class="photo-frame">
       <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAJIAegDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD4yooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKdQA2irtvYSyruxUi2X+zQBQpyRlqvNDCn8XzUyMjcV3UAV/sz1bsdPE7HzG206H963lrU1vM0Exjm+Zcik7hoW18NidQ1vcr/u1BdeHbiD+9W/Y22myTeZeedBuHySxt8tW7GzvPs73FrefaY1crsbnis25IrQ4ebTJkGRzVKRGRtrCvRPs1vqUPnRr5c0Z2ulZWraMk0L7R+8WqUhWONoqSaN4nKtUdWIKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAqxZ2st1JtjFQqpZtq16B4T0qH7P5cy7WYfM1AHNWejeaxXzF+U/M1TNZ2tnNtZfMkrodYFrplr5K/e31yt5cvPMGX7qn5qAWpsWqpJYyTbfu1gXF2NxVXqbVNVd7f7Lb/LDWSo3N92gB+5mb+81O8mTbu2tT7fzFyqou6rqxzIyedtjWRKaEyrp+9mG2taPT/NbdtZm/irOs5EimO1vu1pQ6xBHZyRtu85v4qYhNYvEXy7OF22xj7v8LVLaz3Nra7rdmVWrKaa2/3pGrYvJjFpcKtUNXNBug6lLba0dzblb71dVNd2Us3yttkxuZa4zSYo5LgXHmfNWxcedB80i/epOOgJmX4q0uSO8LRp96sCS3mT70bV3Nrqu6FLe8gWRv4Wq2sNtOu2a2XbU3aDlPOGjcLuI4pld9daNbPGVh/irjdTtvs9wVxVKSYmrFOiiiqEFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAVc0uwmv5vLhFU67LQYxZ2cK7fml+ZqTAl0nw5BayJNdSK1dBZzT7hHa7V5+ZmrJvL9baQKq+Y1Xl1S3+yvcXCrA2z5V/vU0SZnjCHbdeYzKzVyNw6plY23N/eo1C/uLm4dmlbbmorVYWbdcM22gogb73zU+EhWDbqkupkkYbY9q1BQA/cdxbd3p9zcyzMPMkZtv3ahU0VQD801jRSNQIfG+xg1aF1qX2lYfMX7tZlT2MaSTjzG2rUjLMdzsb+7zWj/aEtzGitLVPWntnkH2ddvFZqllb5WoA6G3lhjkDSNuq7JqO6QeXIy1z9rC8rfNLtomutshVW+VaTVxpm1HqLxTBvMZtpqx4osobm1+3Q/dYbmrBWSNbXzFbc2flWun8OqZbOS1uPuyJWbi4u5b1RwNFXNXg+zahJD/dNU61MwooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAJrONpbhI1/iNd9JFLFDD5cG7aNu6uL0Bd2rQL/t16StotzD/x8sq/xLS6gc55KRzPcM26ub1i6aeY/M22trxROltD9nhX93muZkz/ABfeqmAW/liT9992kmcO3yr8tMqxb2k05HlpUtpDSuyviiuo0vwleXW3cvy12uh+BbaNR50W5qzdeCNoYWcuh5P5E23cEojhkZtqpXvkPgNZIUZbP93VeHwBFLeGNk21Ht09jdYKR43Do1zKv3akXQLtW+Zflr3RvB6W0YVV+Zf4axL7RZYpH/cMtR9ZNPqMrHjN1p88Un3aqspRvmFeq3mj/KdyVx2t6M6ktHV08QpMwnhJRRzbO22m1K0LJ8rVHxXQcj0J1um27ajba33ajoosBo6fDtYbvmVq6rR2SBhNI3+zXK2cyMyLXR+av2OPau1WPzVFTYqBkeNYfK1bd/C1YFdR45dWlgX+LZXL04fChPcKKKKoQUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAb/AIIhWXVlZv4a9Km+z2ummSOBmauB8EYgSW4rrluZp4fsqyxqrD+9S6gcJ4kWaW686T5VrDrqPFynzBZx/dj+ZmrBW1aRQytTY7E+h2D31wFVe9emaDoMa+Wu2qHgXSttunC/NXpml2EUSiRlrzsRWsz08HhubVlKxsPKwqrXoHhXR7ZVSa4+81c9p8aNcM1b8Nxsxtrh9orntRopLQ6bUI18sRwqtUtNs7aJX85d0lVPt8rLu3fNVeS8fcWaq9suhLpSbK+rQut5+7as28tQ2fO+atJptyn+9WVfSu38NQ6jNY0mczrFki58ta5fVLBWjPy13twm/wC9WZJZo275aiNRp7hUoxa2PI9a0X+JVrlbqzltm+ZWr3O80hH/AOWdct4u8Pp9lLKvzYr0qOL2ieNisF9pHllIamuojBO0bVDXorVXPHas7Eluf3ldXocMk7J53+piG5axtCsfOmRmWt/WrxNPsTbr/rG+9WUtXYtaI5vxJdm71SST+HPy1mU+RtzlqZWqICiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA6bwxulsJI1+8rbqlt7zbJJJIrbsfLVPwZO0V+y/3hW7cWwZvO8up2YamHqErtbmRvvVW0XM9wI1X7xqzrCPJJ5a1ueBdFeW+T92zfNUVJWRrTi5SSPQfCNgIreOus+6oWo9N0traELtq9DavJIK8WrK8j6TDQ5Yodp8LferShhepbW2iiUVZUxLWB2JEPlsq1TmEzSVoySharySpRcuzIVRlqleK392r/npUEksTN92puGpkSIzLVSQba2Jgjfw1Smtxu+WhAypGitVfWLKOe3K7e1accLLUk0DSR/drRPlaZhVjzRaPnfxtYC11B2WsC1TzZ1SvQfihYOlwZNtcFZnbcJXu0Kl4HzGIp8szttBhSPeyr/q491cprsry3LsxrrdNby9Nkmb/AJ5la4W/fdcGtIGEitRRRVkBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUU+NC7BVoAveHnK6tB/vV6Ja232lT/AHcVyvhjw/fveQ3Hksy7hXd29tJFa/7z7aznuWk0J4f8NxajIdsW6vUPCvg+PT40+TbJVr4S6Iq6Wb6SL7x2rXV+ILyHR9PLbd0zD5a4a1R3sephqaa5jnfEVzY6PGfMZfOx92uKm8arFMd0f7un6kj6hcG4vJNzMapzW2nbWjZV3f3awUYN3aO5uSWhZ/4T+wVdzSU6HxvYTttjlrjNUstFZjUWn2emLIPLpujG1xKvUT3PUrHVBdruVqmaZq5vSZIY4wsdaXnNXHUjZnp0ql4lu4kK/NurnNU8RvYsfm3VoX15sj+Zq5jUri1lYs1OlGL3Mq1VpaEMnj9/M2+U1XNP8ZmdT8tZEaaUzbpFWtW1j0fhVjjrq9nTS2OJVqncv2vid/tA8z7tdro8sOoWvmQtu4rjY9MsZF2qtb3g2JtM1Ax7t0LVhNKxtCU+rI/H3hhdV0eTbF+8UV4Ivh+aC8bzo/uvX2ItvHLHMqp8rRmvnnxJbI2uTwxqzbpttdmFqO1jy8co7nLeJJVsdFjhjXazVwbHcxNehePNMvp7oxwwN5caBa4CeGSCTy5F2tXoU9jyp7kVFFFaEhRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAtdT4D00XNwbiSLcsdcsa9G+HGz+zmrKtJxhc6MLTVSqos9Ps9NSKxg1Czj8uSPG5P4ahvIZp90klt94/Mq10eg4Tw/H5jf6yp7N7W532sbRsyuN1eTGvLmPoMTgoKHund+E7eOx8M28e3turkPGF79puCv92u1vnWDQ0WP72wV5xqibmdm3VNWV9TKhScYnH69qLxybVfaq/erE1pNXg0+O6hRbaGR/vSV1zWlj5haaPc1UdStoLmxazkuf3KncqtVUpR6jqxn0PNLE6nea0bP7dDPzWtcWVzY3gharP9m2Om3Bkt2+b+8tWrOzu9Qug2xtv95q6ZTjY56cZJ6mp4b3rIFZq69ok2iqOg6S0bf7Vdtp/hW4u7N5lk27a4Zanq0dEeW+LGdJAsdcp8st15LK0km77q16V4s0huYZPvLXATQS6deeYysv8At1VFq5hiIyKniJ9S0e4kjjitYPLjDNubLc0nhe51vUmfbBDOsY3Pt9Kva1EniDy5JmVpFULu6Vt+G7F9PtTDC6x7vvMtdknBI8+MKjkV9Lv0aYeT8vPzo38JrtdLdZNklYH9iWCzeYv+s/iZa6DS4vKjrz60l0PSoxlsz0XQX8+Et/sGvCr5/snjKebyvPWORtq/3TXt3hM/6PJ/uGuFXSreS+eT93uacs9XSnZGdWgpyscjqELR25vtSk/fTn91FHXlHxHgig1geWu3cuStez+IhHL4qkb/AJY2ifKv8K8V4d43vftuuTSf7Rr0cI5N3POzKnCmlFbnP0UUV3HkBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAGur+H2pfZtRFux+WSuUqzYSmK8ikX+FqU1eLRdObhJNH0nfXQXQ7VY2+8Nq1p+C9KWL/TpvvSOK5PRc6r4fh8mX/SIxuWum8K6ldxXkOl6hE0bfwtXguNps+uhL2lJM9JunV7PbXK6hbeZnatb0k37nbVGZRtLVEnqRCOtjmLqyG3ay1j3GmLIxXbXRX0oaT5WqBdiqWZqV7HQqKZhQ6Daq26SPdWittbwLtXav+zUd9frHlVrQ8Jw295m4uv4aLyM3SSZp+HbUv8Avmj+Va7DT9QWC3kjb+KucuNXtII2jX5VqpcapEy/LJQ3obqysO8RIlzDJJ/drkJobSePy5o1bd/C1dTHdQ/8tG+Vq5zxZbRwQ/boW+6RUxYSUWrmJN4Yt93mW7MtWbPSWi+Vmar2i3izxiRmrTbbT5mxRoRepVtbNVrSt02/KzVDb/eq9DDukDVi7uVjTlUUdLpatbaLcXG1vljNeUaHfTNqkm6RtzOa9R8TarDovhnzJG/1ibVWvJNLt7iW6l1Jk8uHmuiEWrIw5krvsZPxE1iPTLe62v8A6Rcn5v8AZFeK3EhllLt1Nb3jvUnv9bnZj8u+udNe7RpqEbHyWJrOrNyYlFFFanOFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABSrw1JRQB7R8IdRSWGFZG/1deu25hnuhdLEq7R96vmn4cawunamFmPytXtH/AAk9tLYx29q3zN95q8nFUpKd1se9gcTH2XK9z0PfuhDVQvrj5StN0W8SezC7t21KzdSlf5mrhm7HpUZLcrzTfNWdfXbKrbaS4dqzNQlEXzNupx1N51bInt4d8guJKvQ3M1plbfbWTZzTSt9zatRTTbGO6dVatlA5nUuOmXVZ9UM1xc7V/uVoteFPlaqdqwl+9dLup0gMn8S/99U1FdRFC4v9Ue+DQ/6n+7Wjrl5NeaeLdV2/3qqKs0Un3V/3t1T+aq48xam0TRT0K/h9pbaTy2rolmZqxd8TzeZHVuOZttZyNqUjas2XdW9pKiSSuRtbg11OjzLbWb3EjbVUVnY1qN2JPEjW95eW8Nx80cHzba5bxtf28Gm3dxCvlxrGVVa0by7hlaSTzF/eV5V8VvEMaWZ0+GX5m+9XThqcpzV9jzcbWUKT7s8n1CTzryST+8ar06m17p8qFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAPjdkbcprUsdbvYmC+a1ZFFJpMak0fSHwp1g3Onrubc2K6m+TzMtXkXwZvHVtteuySqyivCxdO0j6LA1bwRR8hf4lrmtWtnnvvl+6tdLM7VTW3VZNzVjF2OyScjmdS03UNokt7ltv92qMem3zqW8/5l/vV3Gz5v3dV7pIm+Zoq6FURkoHGRreQN++tGb/AHaJri8k/wBXaSLXRSEbvlZlqNQzN96tFUibKmYMaarGvmKlTw3+qyRlbi0Xy66aGGLb81Okj3LtZV2/3aiU4icTB0tma4rfWLdVeG2WKTcq1fjZa5pSRpBWG28TrIKj8YeJLfRdJkVvm4+7WgpCqZK8M+KOste6sbWN/wB3HXXg6XPK72PPzLEyguVMkv8Ax7cFXW1Tburj9QvZr6dpp23Maq0uK9eMIx2Pn5VJS3EoooqiAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA9T+DKbrivWrpmiXbXlnwVXbIWr1HVjujrxsZrOx7mB0p3K7P8ANUyjctZH2n5vmq3b3iVyJM9CNQsNUbPu/ipZLiJlqo0yq1CNFYlZI/4lqOOKL+7UUlyG/iojuVVfvUzROJeVQ1OWIbvmqnHdIv8AFRNcs33ah3DQnuCi/dqK1+Zjuqqzt/eq7po82ZKaj3M3ULGqbrbSZJNvzbC1fNWsu8uoTSMG+8a+k/HmpNpXhW6vFiVtuF214Z/b+nzzf6RYxru+81etg2lDRHhY9OU7nJbT6UbT6V6Tpuj219bm8tVhaH+JqgutEtLtZIVlt1kx8tdXtlexxewla553RW7ceG7qCQrNLGtVNQ0e8s18xl3R/wB5a0ujKzM2iiimIKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigApydabWho9hLd3AVVpN2Gtz1z4M2u2HzK7/UkZozWT8N9N+y6X93+GtrUG3Ma8GvK9S59DhKbVKxy118rVXabbWrfQ7qzbi32/wANC1NGmiFrl/71VprqX+9STI65qo0rL95apRRPtGTfbJaljuXas5px/dpq3bL/AA1bgg9ozcjlqT7Q396s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mb0viOv0dNsYro7VKw9LT5RW/bp8tefW3PboLQuQ1fjX5apwx9K01i2qtccmehTWg6NPmFX4aqw1ct13NWLNUaFv92vDfjnf+bqyW6t92vbpisFq8jfwivmbx/f/ANoeIriTPRq9HLoa8x42cVNFA52iiivXPBCiiigAooooAKKKKAFrrfh1rLWOqJayN+5kooqakU4s0pScZpo9ltZtyitSFWoorwZfEfXUnzR1LkbfLtp7bWULRRUm9iteQq33a4fx5YtLptwu3tRRW9B2kcOKScGeHSrskKmo6KK9qOx8q9xVqSiimIbVmFaKKACRttQMdzUUUANooooASpFFFFAEq0rHatFFAEWaM0UUANooooAKKKKAHqKftoooAKfHRRQBI1QtRRQAlTW/+qaiigCxC22QVnTALdP9aKKANO1b/RXao7yT93RRQBltU1uvzUUUAaSnbau3tWK33qKKAOq8Mf8AIFuP+ulJpabrjd/tmiiueqdFD4jt9N+6K3bf7tFFefUPcomjap8wrQU/MKKK5Jbno0yzHV2zT5hRRWT3NIoxfiZqn9meGZpFb5myq1803EjTTNI33mNFFe5gklTPlsym5VmmRUUUV2HnhRRRQB//2Q==" alt="Kshitij Junnarkar"/>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">14+</span>
-          <span class="stat-label">Projects</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">5</span>
-          <span class="stat-label">Countries</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">3+</span>
-          <span class="stat-label">Hackathons</span>
-        </div>
-      </div>
+      <div class="photo-caption"><span class="mono">Johannesburg ⇄ Delhi NCR</span><span class="mono">Est. 2024</span></div>
     </div>
+    <div class="float-badge fb-1"><span class="ico"><i data-lucide="trophy" width="16" height="16"></i></span><span><b>Top 30, SRM-wide</b><small>AI Attendance</small></span></div>
+    <div class="float-badge fb-2"><span class="ico"><i data-lucide="file-text" width="16" height="16"></i></span><span><b>Research paper</b><small>Memora</small></span></div>
+    <div class="float-badge fb-3"><span class="ico"><i data-lucide="rocket" width="16" height="16"></i></span><span><b>Founder &amp; CTO</b><small>EMenu</small></span></div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-label">01 — About</div>
-  <h2 class="section-title reveal">Who I Am</h2>
-  <div class="about-grid">
-    <p class="about-bio reveal reveal-delay-1">
-      <strong>I'm Kshitij Junnarkar, a B.Tech student specializing in Artificial Intelligence &amp; Data Science in collaboration with IBM at SRM University.</strong> I build AI-powered products, computer vision systems, automation tools, and SaaS platforms. My current focus is EMenu, a digital restaurant ecosystem designed to modernize dining experiences through intelligent software. My work spans AI assistants, memory architectures, predictive analytics, gesture recognition, and full-stack product development.
-    </p>
-    <div class="about-meta reveal reveal-delay-2">
-      <div class="meta-item">
-        <span class="meta-item-label">Location</span>
-        <span class="meta-item-value">Johannesburg, South Africa</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-item-label">Email</span>
-        <span class="meta-item-value">kshitij.junnarkar@gmail.com</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-item-label">Currently</span>
-        <span class="meta-item-value">B.Tech AI @ SRM University + Building EMenu</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-item-label">Focus</span>
-        <span class="meta-item-value">AI Systems · Computer Vision · LLMs · Automation · SaaS</span>
-      </div>
+<div class="stats">
+  <div class="stat reveal"><div class="stat-num"><span data-count="21">21</span><em>+</em></div><div class="stat-label mono">Projects built</div></div>
+  <div class="stat reveal d1"><div class="stat-num">Top <span data-count="30">30</span></div><div class="stat-label mono">Across SRM universities</div></div>
+  <div class="stat reveal d2"><div class="stat-num"><span data-count="75">75</span><em>%+</em></div><div class="stat-label mono">Recognition accuracy</div></div>
+  <div class="stat reveal d3"><div class="stat-num"><span data-count="3">3</span><em>+</em></div><div class="stat-label mono">Hackathons incl. SIH 2025</div></div>
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Python</span><span>TypeScript</span><span>React</span><span>Node.js</span><span>Socket.IO</span><span>PostgreSQL</span><span>YOLOv8</span><span>OpenCV</span><span>MediaPipe</span><span>FastAPI</span><span>React Native</span><span>Docker</span><span>LLM Agents</span><span>Claude Code</span><span>Python</span><span>TypeScript</span><span>React</span><span>Node.js</span><span>Socket.IO</span><span>PostgreSQL</span><span>YOLOv8</span><span>OpenCV</span><span>MediaPipe</span><span>FastAPI</span><span>React Native</span><span>Docker</span><span>LLM Agents</span><span>Claude Code</span>
+  </div>
+</div>
+
+<!-- WORK -->
+<section class="block" id="work">
+  <div class="section-head">
+    <div>
+      <div class="kicker mono">01 — Selected work</div>
+      <h2 class="section-title reveal">Things I've <span class="outline">built</span></h2>
     </div>
+    <p class="section-intro reveal d1">Each one started with a real problem. Here's what it was, what I built, and where it got to.</p>
+  </div>
+
+  <div class="bento">
+
+    <article class="tile b-emenu reveal">
+      <div class="tile-top"><span class="badge hot"><i data-lucide="radio" width="11" height="11"></i>Live · In talks with restaurants</span><span class="tile-icon"><i data-lucide="utensils-crossed" width="18" height="18"></i></span></div>
+      <h3>EMenu</h3>
+      <p class="lead">A restaurant operating system: QR ordering for guests, plus live tools for waiters, the kitchen and owners.</p>
+      <p>Restaurants run on paper menus, shouted orders and WhatsApp groups, and existing POS systems are expensive and built for chains. EMenu puts the whole restaurant on one real-time platform. <strong>I founded it and built the full stack myself.</strong></p>
+      <div class="flow">
+        <div class="flow-node"><i data-lucide="qr-code" class="ico"></i><b>Guest</b><small>Scan, browse, order</small></div>
+        <div class="flow-node"><i data-lucide="smartphone" class="ico"></i><b>Waiter</b><small>Android app, live tables</small></div>
+        <div class="flow-node"><i data-lucide="chef-hat" class="ico"></i><b>Kitchen</b><small>Live order board</small></div>
+        <div class="flow-node"><i data-lucide="chart-line" class="ico"></i><b>Owner</b><small>Menus, tables, analytics</small></div>
+      </div>
+      <div class="emenu-meta">
+        <div><b>Real-time</b><small>Socket.IO sync between guest, waiter and kitchen</small></div>
+        <div><b>R0 AI cost</b><small>Replaced an external LLM with a local recommender</small></div>
+        <div><b>Full stack</b><small>React 19, Node, Postgres, React Native</small></div>
+      </div>
+      <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Socket.IO</span><span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span class="tag">React Native</span></div>
+      <div class="links">
+        <a class="link" href="https://emenyu.com/Trump" target="_blank" rel="noopener"><i data-lucide="play" width="12" height="12"></i>Live demo</a>
+        <a class="link" href="https://emenutechnology.com" target="_blank" rel="noopener"><i data-lucide="globe" width="12" height="12"></i>Website</a>
+      </div>
+    </article>
+
+    <article class="tile b-att reveal d1">
+      <div class="tile-top"><span class="badge hot"><i data-lucide="badge-check" width="11" height="11"></i>Approved by SRM University</span><span class="tile-icon"><i data-lucide="scan-face" width="18" height="18"></i></span></div>
+      <h3>AI Attendance System</h3>
+      <p>Taking attendance by hand eats into every lecture. Give this one classroom video and it returns the attendance list, with detection, tracking and face recognition running locally on a CPU.</p>
+      <div class="metrics">
+        <div class="metric"><b>Top 30</b><small>Selected across all SRM universities</small></div>
+        <div class="metric"><b>75%+</b><small>Recognition accuracy</small></div>
+      </div>
+      <div class="tags"><span class="tag">Python</span><span class="tag">YOLOv8</span><span class="tag">ByteTrack</span><span class="tag">YuNet / SFace</span></div>
+      <div class="links"><a class="link" href="https://github.com/KingKj-13/ai-attendance-system" target="_blank" rel="noopener"><i data-lucide="github" width="12" height="12"></i>Code</a></div>
+    </article>
+
+    <article class="tile b-mem reveal d2">
+      <svg class="memora-graph" viewBox="0 0 210 170" aria-hidden="true">
+        <line x1="30" y1="40" x2="90" y2="70"/><line x1="90" y1="70" x2="160" y2="35"/><line x1="90" y1="70" x2="120" y2="130"/><line x1="120" y1="130" x2="185" y2="110"/><line x1="30" y1="40" x2="50" y2="120"/><line x1="50" y1="120" x2="120" y2="130"/><line x1="160" y1="35" x2="185" y2="110"/>
+        <circle cx="30" cy="40" r="4"/><circle class="pulse" cx="90" cy="70" r="5"/><circle cx="160" cy="35" r="4"/><circle cx="120" cy="130" r="4"/><circle class="pulse" cx="185" cy="110" r="4"/><circle cx="50" cy="120" r="3.5"/>
+      </svg>
+      <div class="tile-top"><span class="badge violet"><i data-lucide="file-text" width="11" height="11"></i>Research paper</span><span class="tile-icon"><i data-lucide="brain-circuit" width="18" height="18"></i></span></div>
+      <h3>Memora</h3>
+      <p class="lead">A neural memory architecture that gives conversational AI long-term, branching memory.</p>
+      <p>Chatbots forget everything outside their context window. Memora stores memories as a branching graph so the model can retrieve the right context much later. <strong>Development is complete, and it's now written up as a research paper.</strong></p>
+      <div class="tags"><span class="tag">LLM Engineering</span><span class="tag">Knowledge Graphs</span><span class="tag">Retrieval</span></div>
+    </article>
+
+    <article class="tile b-4 reveal">
+      <div class="tile-top"><span class="badge">Prototype</span><span class="tile-icon"><i data-lucide="sparkles" width="18" height="18"></i></span></div>
+      <h3>Friday AI</h3>
+      <p>A personal AI assistant that actually runs your day: scheduling, reminders, conversation and task coordination in one voice-first agent.</p>
+      <div class="tags"><span class="tag">LLMs</span><span class="tag">AI Agents</span><span class="tag">Voice AI</span></div>
+    </article>
+
+    <article class="tile b-4 reveal d1">
+      <div class="tile-top"><span class="badge">Completed</span><span class="tile-icon"><i data-lucide="gavel" width="18" height="18"></i></span></div>
+      <h3>Cricket Auction Intelligence</h3>
+      <p>Built for an IPL-style bidding competition. It scores players with its own valuation model, predicts auction dynamics, and optimises the squad under a fixed budget.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Optimisation</span><span class="tag">Predictive Modelling</span></div>
+    </article>
+
+    <article class="tile b-4 reveal d2">
+      <div class="tile-top"><span class="badge">Team project</span><span class="tile-icon"><i data-lucide="film" width="18" height="18"></i></span></div>
+      <h3>Drone Video → 3D</h3>
+      <p>Our team turned a single drone video into a 3D reconstruction. A 3D model wastes time and compute on near-duplicate frames.</p>
+      <div class="role-note"><b>My role</b>The video-to-frame stage: picking the smallest set of frames that still keeps everything the 3D model needs.</div>
+      <div class="tags"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">3D Reconstruction</span></div>
+      <div class="links"><a class="link" href="https://github.com/KingKj-13/video-to-frame" target="_blank" rel="noopener"><i data-lucide="github" width="12" height="12"></i>Code</a></div>
+    </article>
+
+    <article class="tile b-4 reveal">
+      <div class="tile-top"><span class="badge">Prototype</span><span class="tile-icon"><i data-lucide="activity" width="18" height="18"></i></span></div>
+      <h3>Fitness Analytics</h3>
+      <p>A health and fitness analytics app with personalised workout recommendations, progress tracking and performance insights.</p>
+      <div class="tags"><span class="tag">Analytics</span><span class="tag">Health Tech</span><span class="tag">AI</span></div>
+    </article>
+
+    <article class="tile b-4 reveal d1">
+      <div class="tile-top"><span class="badge">Prototype</span><span class="tile-icon"><i data-lucide="shirt" width="18" height="18"></i></span></div>
+      <h3>Virtual Try-On</h3>
+      <p>Try on different outfits straight from your phone. Point the camera at yourself and switch looks in seconds, no changing room needed.</p>
+      <div class="tags"><span class="tag">Computer Vision</span><span class="tag">Image Processing</span><span class="tag">AI</span></div>
+    </article>
+
+    <article class="tile b-4 reveal d2">
+      <div class="tile-top"><span class="badge">Ideation · Awaiting approval</span><span class="tile-icon"><i data-lucide="mic" width="18" height="18"></i></span></div>
+      <h3>AI Interview Coach</h3>
+      <p>Students walk into placement interviews with little realistic practice. An AI interviewer runs mock interviews and gives honest feedback on every answer.</p>
+      <div class="tags"><span class="tag">LLMs</span><span class="tag">AI Agents</span><span class="tag">Voice AI</span></div>
+    </article>
+
+  </div>
+
+  <div class="section-head" style="margin-top: 72px; margin-bottom: 24px;">
+    <div class="kicker mono" style="margin: 0;">Completed projects &amp; experiments</div>
+  </div>
+  <div class="more-grid">
+    <div class="tile more-item reveal"><div class="row"><b>CleanCampus</b><span class="mono">Completed</span></div><p>Campus waste reporting and hostel-cleaning booking for students, cleaners and admins, deployed for college life. Web + Android on Firebase.</p><a class="mini" href="https://github.com/KingKj-13/campus-clean" target="_blank" rel="noopener"><i data-lucide="github" width="12" height="12"></i>Code</a></div>
+    <div class="tile more-item reveal d1"><div class="row"><b>PostureAI</b><span class="mono">Completed</span></div><p>Real-time workout posture correction in the browser with MediaPipe, plus a FastAPI, Postgres and Redis backend.</p><a class="mini" href="https://github.com/KingKj-13/Posture-AI" target="_blank" rel="noopener"><i data-lucide="github" width="12" height="12"></i>Code</a></div>
+    <div class="tile more-item reveal d1"><div class="row"><b>Claude Glass Widget</b><span class="mono">Completed</span></div><p>Always-on-top glass desktop HUD for AI coding usage, tokens and reset countdown. Tauri, React, TypeScript.</p><a class="mini" href="https://github.com/KingKj-13/claude-glass-widget" target="_blank" rel="noopener"><i data-lucide="github" width="12" height="12"></i>Code</a></div>
+    <div class="tile more-item reveal d2"><div class="row"><b>Jarvis AI Assistant</b><span class="mono">Completed</span></div><p>Modular Python voice assistant: speech in, actions and answers out.</p><a class="mini" href="https://github.com/KingKj-13/Jarvis-Python-Project" target="_blank" rel="noopener"><i data-lucide="github" width="12" height="12"></i>Code</a></div>
+    <div class="tile more-item reveal"><div class="row"><b>HandTrack Vision Suite</b><span class="mono">Completed</span></div><p>Real-time hand tracking and custom gestures for touchless control.</p></div>
+    <div class="tile more-item reveal d1"><div class="row"><b>MotionRunner</b><span class="mono">In progress</span></div><p>Endless runner you play with your body: squats slide, jumps clear obstacles.</p></div>
+    <div class="tile more-item reveal d2"><div class="row"><b>Recipe Intelligence</b><span class="mono">Completed</span></div><p>Suggests meals from ingredients you already have, to cut food waste.</p></div>
+    <div class="tile more-item reveal"><div class="row"><b>Guru</b><span class="mono">In progress</span></div><p>Wearable-first life-guide with smart scheduling and mood detection.</p></div>
+    <div class="tile more-item reveal d1"><div class="row"><b>Seat Selector</b><span class="mono">EMenu module</span></div><p>Visual table and seat layout with real-time availability and bookings.</p></div>
+    <div class="tile more-item reveal d2"><div class="row"><b>Order Admin Panel</b><span class="mono">EMenu module</span></div><p>Orders, menu updates, customer analytics and day-to-day operations.</p></div>
+    <div class="tile more-item reveal"><div class="row"><b>Desktop IDE</b><span class="mono">Prototype</span></div><p>A custom development environment built around my own workflow.</p></div>
+    
   </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-label">02 — Experience</div>
-  <h2 class="section-title reveal">Work</h2>
-
-  <div class="exp-item reveal">
-    <div class="exp-date">Jul 2025 — Present</div>
+<section class="block" id="experience">
+  <div class="section-head">
     <div>
-      <div class="exp-company">Emenu Technology</div>
-      <div class="exp-role">Founder &amp; CTO</div>
-      <ul class="exp-points">
-        <li>Founded a SaaS-based AI-powered eMenu platform targeting fine-dining restaurants in South Africa</li>
-        <li>Built the backend with Node.js + Express featuring real-time order updates and live admin tracking</li>
-        <li>Designed a structured JSON-based multi-category menu system for dynamic restaurant configurations</li>
-        <li>Integrated an AI assistant for smart dish recommendations based on customer preferences</li>
-        <li>Executing direct B2B onboarding with a ~R1000/month subscription model</li>
-      </ul>
-      <div class="exp-tags">
-        <span class="tag">Node.js</span>
-        <span class="tag">Express</span>
-        <span class="tag">JSON</span>
-        <span class="tag">AI</span>
-        <span class="tag">SaaS</span>
-        <span class="tag">REST APIs</span>
-      </div>
+      <div class="kicker mono">02 — Experience</div>
+      <h2 class="section-title reveal">Founder <span class="outline">mode</span></h2>
+    </div>
+  </div>
+  <div class="tile exp reveal">
+    <div class="exp-side">
+      <div class="when mono">Jul 2025 — Present</div>
+      <h3>EMenu</h3>
+      <div class="role mono">Founder &amp; CTO</div>
+      <div class="links"><a class="link" href="https://emenyu.com/Trump" target="_blank" rel="noopener"><i data-lucide="play" width="12" height="12"></i>Demo</a><a class="link" href="https://emenutechnology.com" target="_blank" rel="noopener"><i data-lucide="globe" width="12" height="12"></i>Site</a></div>
+    </div>
+    <ul class="exp-body">
+      <li>Building a <strong>restaurant operating system</strong> for South African restaurants that covers both front of house and back of house</li>
+      <li>Started with guest ordering, then widened the product into <strong>kitchen and floor operations</strong> to cover how the whole restaurant runs</li>
+      <li><strong>Built the full stack myself:</strong> React 19 + TypeScript, Node/Express 5 with Socket.IO, PostgreSQL via Prisma, Expo/React Native, deployed with PM2 and Nginx</li>
+      <li>Replaced an external LLM with a local recommendation engine, bringing <strong>AI cost per order to zero</strong> and making answers predictable</li>
+      <li><strong>Run sales myself:</strong> cold calls turn into live demos and planning meetings, and restaurants liked the product</li>
+      <li>Now <strong>in talks with restaurants for full deployment</strong></li>
+    </ul>
+  </div>
+  <div class="two-col" style="margin-top: 14px;">
+    <div class="tile reveal">
+      <div class="tile-top"><span class="badge">2022 — Present</span><span class="tile-icon"><i data-lucide="chart-candlestick" width="18" height="18"></i></span></div>
+      <h3>Stock Market Trader</h3>
+      <p>Self-directed trader managing my own account since 2022. Taught me to make decisions with real money on the line, size risk, and keep a disciplined process when things move fast.</p>
+    </div>
+    <div class="tile reveal d1">
+      <div class="tile-top"><span class="badge">2022 — 2024</span><span class="tile-icon"><i data-lucide="video" width="18" height="18"></i></span></div>
+      <h3>Content Creator</h3>
+      <p>Built a motorcycle and comedy audience on social media: scripting, shooting, editing and learning what makes people stop scrolling. In 2025 I put that energy into starting EMenu.</p>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-label">03 — Projects</div>
-  <h2 class="section-title reveal">Built Stuff</h2>
-
-  <div class="project-filters">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="ai">AI &amp; LLM</button>
-    <button class="filter-btn" data-filter="vision">Computer Vision</button>
-    <button class="filter-btn" data-filter="web">Web &amp; SaaS</button>
-    <span class="filter-count" id="filter-count">14 projects</span>
+<!-- PROCESS -->
+<section class="block" id="process">
+  <div class="section-head">
+    <div>
+      <div class="kicker mono">03 — How I build with AI</div>
+      <h2 class="section-title reveal">AI drives. <span class="outline">I steer.</span></h2>
+    </div>
+    <p class="section-intro reveal d1">AI is my fastest teammate, not my decision-maker. I frame the problem, direct the agent, check its work, and make the call myself.</p>
   </div>
-
-  <div class="projects-grid">
-
-    <div class="project-card reveal" data-cat="ai web">
-      <div class="project-status">Active</div>
-      <div class="project-name">EMenu Technologies</div>
-      <div class="project-desc">AI-powered digital restaurant platform modernizing dining experiences through QR ordering, intelligent menu systems, analytics, restaurant management tools, and customer engagement technology.</div>
-      <div class="project-stack"><span class="tag">Node.js</span><span class="tag">JavaScript</span><span class="tag">Restaurant Tech</span><span class="tag">AI Integration</span><span class="tag">SaaS</span></div>
-      <a href="https://github.com/KingKj-13" target="_blank" rel="noopener" class="project-link"><i data-lucide="external-link" width="13" height="13"></i> View on GitHub</a>
-    </div>
-
-    <div class="project-card reveal reveal-delay-1" data-cat="ai">
-      <div class="project-status">Completed</div>
-      <div class="project-name">Jarvis AI Assistant</div>
-      <div class="project-desc">Voice-controlled AI assistant built in Python that performs tasks like web search, system control, and automation using natural language commands — voice recognition, text-to-speech, and task automation.</div>
-      <div class="project-stack"><span class="tag">Python</span><span class="tag">SpeechRecognition</span><span class="tag">pyttsx3</span><span class="tag">OpenAI</span></div>
-      <a href="https://github.com/KingKj-13/Jarvis-Python-Project" target="_blank" rel="noopener" class="project-link"><i data-lucide="external-link" width="13" height="13"></i> View on GitHub</a>
-    </div>
-
-    <div class="project-card reveal reveal-delay-2" data-cat="ai">
-      <div class="project-status">Prototype</div>
-      <div class="project-name">Friday AI</div>
-      <div class="project-desc">Personal AI assistant focused on daily life management, productivity, scheduling, reminders, conversational interaction, and intelligent task coordination.</div>
-      <div class="project-stack"><span class="tag">LLMs</span><span class="tag">Voice AI</span><span class="tag">Automation</span><span class="tag">Productivity</span><span class="tag">AI Agents</span></div>
-    </div>
-
-    <div class="project-card reveal" data-cat="ai">
-      <div class="project-status">Development</div>
-      <div class="project-name">Neural Memory Graph</div>
-      <div class="project-desc">Experimental AI memory architecture designed to extend long-term contextual understanding through branching memory structures. Focused on scalable retrieval, persistent context, and improved conversational intelligence.</div>
-      <div class="project-stack"><span class="tag">AI Architecture</span><span class="tag">Memory Systems</span><span class="tag">Knowledge Graphs</span><span class="tag">LLM Engineering</span></div>
-    </div>
-
-    <div class="project-card reveal reveal-delay-1" data-cat="ai">
-      <div class="project-status">Completed</div>
-      <div class="project-name">Cricket Auction Intelligence Engine</div>
-      <div class="project-desc">AI-powered cricket auction simulator built for an IPL-style bidding competition. Analyzes player statistics, generates proprietary valuation scores, predicts auction dynamics, and optimizes squad construction under budget constraints.</div>
-      <div class="project-stack"><span class="tag">Python</span><span class="tag">Analytics</span><span class="tag">Optimization</span><span class="tag">Predictive Modelling</span><span class="tag">AI</span></div>
-    </div>
-
-    <div class="project-card reveal reveal-delay-2" data-cat="vision">
-      <div class="project-status">Development</div>
-      <div class="project-name">MotionRunner</div>
-      <div class="project-desc">Gesture-controlled endless runner game where real-world body movements drive gameplay. Squats trigger slides, jumps trigger obstacle clears, and movement data is tracked in real time.</div>
-      <div class="project-stack"><span class="tag">OpenCV</span><span class="tag">Pose Detection</span><span class="tag">Computer Vision</span><span class="tag">Python</span><span class="tag">Fitness Tech</span></div>
-    </div>
-
-    <div class="project-card reveal" data-cat="vision">
-      <div class="project-status">Completed</div>
-      <div class="project-name">HandTrack Vision Suite</div>
-      <div class="project-desc">Real-time hand tracking and gesture recognition system capable of detecting finger positions, hand movements, and custom gesture interactions for touchless control applications.</div>
-      <div class="project-stack"><span class="tag">MediaPipe</span><span class="tag">OpenCV</span><span class="tag">Computer Vision</span><span class="tag">Gesture Recognition</span></div>
-    </div>
-
-    <div class="project-card reveal reveal-delay-1" data-cat="vision ai">
-      <div class="project-status">Prototype</div>
-      <div class="project-name">Virtual Try-On Platform</div>
-      <div class="project-desc">AI-powered virtual try-on platform that creates realistic digital representations and visualizes clothing, accessories, and style options on users.</div>
-      <div class="project-stack"><span class="tag">Computer Vision</span><span class="tag">AI</span><span class="tag">Image Processing</span><span class="tag">Product Design</span></div>
-    </div>
-
-    <div class="project-card reveal reveal-delay-2" data-cat="ai web">
-      <div class="project-status">Development</div>
-      <div class="project-name">Guru</div>
-      <div class="project-desc">AI life-guide app with smart scheduling, mood detection via smartwatch integration, and AI-powered daily recommendations — a wearable-first intelligence layer.</div>
-      <div class="project-stack"><span class="tag">Node.js</span><span class="tag">JSON</span><span class="tag">AI</span><span class="tag">Wearable</span></div>
-    </div>
-
-    <div class="project-card reveal" data-cat="web">
-      <div class="project-status">Development</div>
-      <div class="project-name">Seat Selector</div>
-      <div class="project-desc">Visual table and seat-layout system for restaurants with real-time availability, booking management, and native EMenu integration for end-to-end dining experiences.</div>
-      <div class="project-stack"><span class="tag">JavaScript</span><span class="tag">Node.js</span><span class="tag">JSON</span></div>
-    </div>
-
-    <div class="project-card reveal reveal-delay-1" data-cat="web ai">
-      <div class="project-status">Completed</div>
-      <div class="project-name">Recipe Intelligence Web App</div>
-      <div class="project-desc">Recipe discovery and inventory management platform that generates meal suggestions using available ingredients while reducing food waste and improving meal planning.</div>
-      <div class="project-stack"><span class="tag">JavaScript</span><span class="tag">Node.js</span><span class="tag">AI</span><span class="tag">Inventory Systems</span></div>
-    </div>
-
-    <div class="project-card reveal reveal-delay-2" data-cat="web">
-      <div class="project-status">Completed</div>
-      <div class="project-name">Restaurant Order Admin Panel</div>
-      <div class="project-desc">Administrative dashboard for restaurant operations covering order management, menu updates, customer analytics, and operational insights.</div>
-      <div class="project-stack"><span class="tag">Node.js</span><span class="tag">Admin Systems</span><span class="tag">Analytics</span><span class="tag">Restaurant Tech</span></div>
-    </div>
-
-    <div class="project-card reveal" data-cat="ai">
-      <div class="project-status">Prototype</div>
-      <div class="project-name">Fitness Analysis &amp; Planning Engine</div>
-      <div class="project-desc">Health and fitness analytics platform providing personalized workout recommendations, progress tracking, and performance insights.</div>
-      <div class="project-stack"><span class="tag">Analytics</span><span class="tag">Health Tech</span><span class="tag">AI</span><span class="tag">Planning Systems</span></div>
-    </div>
-
-    <div class="project-card reveal reveal-delay-1" data-cat="web">
-      <div class="project-status">Prototype</div>
-      <div class="project-name">Desktop IDE</div>
-      <div class="project-desc">Custom desktop development environment focused on improving productivity, workflow management, and rapid project execution.</div>
-      <div class="project-stack"><span class="tag">Desktop Apps</span><span class="tag">Developer Tools</span><span class="tag">Productivity</span></div>
-    </div>
-
+  <div class="steps">
+    <div class="tile step reveal"><div class="num">01</div><h4>Plan, then delegate</h4><p>I write the plan and the acceptance checks before an agent writes any code, and split the work into pieces it can do well.</p></div>
+    <div class="tile step reveal d1"><div class="num">02</div><h4>Review everything</h4><p>I read, run and test what the AI produces. Before scaling EMenu I ran inventory, security and cleanup audits on the codebase this way.</p></div>
+    <div class="tile step reveal d2"><div class="num">03</div><h4>Overrule it when it's wrong</h4><p>EMenu's recommendations first called an external LLM. I audited it and replaced it with deterministic local logic: zero AI cost per order and predictable answers.</p></div>
+    <div class="tile step reveal d3"><div class="num">04</div><h4>Ship and measure</h4><p>Real users decide. I put builds in front of restaurant owners, students and judges, then iterate on what they actually do.</p></div>
   </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills">
-  <div class="section-label">04 — Skills</div>
-  <h2 class="section-title reveal">Toolkit</h2>
-
-  <div class="skills-container reveal">
-    <div class="skill-row">
-      <div class="skill-category">AI Engineering</div>
-      <div class="skill-items">
-        <span class="skill-pill">LLM Integration</span>
-        <span class="skill-pill">AI Agents</span>
-        <span class="skill-pill">Prompt Engineering</span>
-        <span class="skill-pill">RAG Systems</span>
-        <span class="skill-pill">Conversational AI</span>
-        <span class="skill-pill">Memory Architectures</span>
-      </div>
-    </div>
-    <div class="skill-row">
-      <div class="skill-category">Backend Development</div>
-      <div class="skill-items">
-        <span class="skill-pill">Node.js</span>
-        <span class="skill-pill">Express.js</span>
-        <span class="skill-pill">Flask</span>
-        <span class="skill-pill">REST APIs</span>
-        <span class="skill-pill">Authentication</span>
-      </div>
-    </div>
-    <div class="skill-row">
-      <div class="skill-category">Computer Vision</div>
-      <div class="skill-items">
-        <span class="skill-pill">OpenCV</span>
-        <span class="skill-pill">MediaPipe</span>
-        <span class="skill-pill">Pose Estimation</span>
-        <span class="skill-pill">Gesture Recognition</span>
-        <span class="skill-pill">Object Tracking</span>
-      </div>
-    </div>
-    <div class="skill-row">
-      <div class="skill-category">Programming</div>
-      <div class="skill-items">
-        <span class="skill-pill">Python</span>
-        <span class="skill-pill">JavaScript</span>
-        <span class="skill-pill">HTML5</span>
-        <span class="skill-pill">CSS3</span>
-        <span class="skill-pill">SQL</span>
-      </div>
-    </div>
-    <div class="skill-row">
-      <div class="skill-category">Data &amp; Analytics</div>
-      <div class="skill-items">
-        <span class="skill-pill">Data Processing</span>
-        <span class="skill-pill">Optimization Models</span>
-        <span class="skill-pill">Predictive Analytics</span>
-        <span class="skill-pill">Statistical Analysis</span>
-      </div>
-    </div>
-    <div class="skill-row">
-      <div class="skill-category">Databases</div>
-      <div class="skill-items">
-        <span class="skill-pill">MongoDB</span>
-        <span class="skill-pill">Firebase</span>
-        <span class="skill-pill">SQLite</span>
-        <span class="skill-pill">JSON Systems</span>
-      </div>
-    </div>
-    <div class="skill-row">
-      <div class="skill-category">Tools</div>
-      <div class="skill-items">
-        <span class="skill-pill">Git</span>
-        <span class="skill-pill">VS Code</span>
-        <span class="skill-pill">Postman</span>
-      </div>
-    </div>
-    <div class="skill-row">
-      <div class="skill-category">Product Development</div>
-      <div class="skill-items">
-        <span class="skill-pill">SaaS Development</span>
-        <span class="skill-pill">MVP Development</span>
-        <span class="skill-pill">System Architecture</span>
-        <span class="skill-pill">Product Strategy</span>
-        <span class="skill-pill">Startup Operations</span>
-      </div>
+<section class="block" id="skills">
+  <div class="section-head">
+    <div>
+      <div class="kicker mono">04 — Toolkit</div>
+      <h2 class="section-title reveal">What I <span class="outline">work with</span></h2>
     </div>
   </div>
-</section>
-
-<!-- ACHIEVEMENTS -->
-<section id="achievements">
-  <div class="section-label">05 — Achievements</div>
-  <h2 class="section-title reveal">Beyond Code</h2>
-
-  <div class="ach-grid">
-    <div class="ach-item reveal">
-      <div class="ach-icon"><i data-lucide="medal" width="24" height="24"></i></div>
-      <div class="ach-text"><strong>Gold Medalist</strong> — Horse Riding (Equestrian Champion)</div>
-    </div>
-    <div class="ach-item reveal reveal-delay-1">
-      <div class="ach-icon"><i data-lucide="globe" width="24" height="24"></i></div>
-      <div class="ach-text">Studied in <strong>5 different countries</strong> — Singapore, India, South Africa, France &amp; Spain</div>
-    </div>
-    <div class="ach-item reveal reveal-delay-2">
-      <div class="ach-icon"><i data-lucide="plane" width="24" height="24"></i></div>
-      <div class="ach-text"><strong>Solo backpacking trip</strong> to Vietnam — built for independence and adaptability</div>
-    </div>
-    <div class="ach-item reveal">
-      <div class="ach-icon"><i data-lucide="users" width="24" height="24"></i></div>
-      <div class="ach-text"><strong>High School Treasurer</strong> — Student Leadership Council</div>
-    </div>
-    <div class="ach-item reveal reveal-delay-1">
-      <div class="ach-icon"><i data-lucide="code-2" width="24" height="24"></i></div>
-      <div class="ach-text"><strong>3+ hackathons</strong> completed including Smart India Hackathon 2025</div>
-    </div>
-    <div class="ach-item reveal reveal-delay-2">
-      <div class="ach-icon"><i data-lucide="video" width="24" height="24"></i></div>
-      <div class="ach-text"><strong>Motorcycle content creator</strong> — building a humor niche audience</div>
-    </div>
-    <div class="ach-item reveal">
-      <div class="ach-icon"><i data-lucide="trophy" width="24" height="24"></i></div>
-      <div class="ach-text">College sports: <strong>Basketball, Table Tennis &amp; Chess</strong></div>
-    </div>
-    <div class="ach-item reveal reveal-delay-1">
-      <div class="ach-icon"><i data-lucide="rocket" width="24" height="24"></i></div>
-      <div class="ach-text"><strong>Building EMenu</strong> — a real SaaS startup while in college</div>
-    </div>
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-  <div class="section-label">06 — Certifications</div>
-  <h2 class="section-title reveal">Credentials</h2>
-
-  <div class="cert-list reveal">
-    <div class="cert-item">
-      <div class="cert-year">2026</div>
-      <div>
-        <div class="cert-name">SRM Builds 7.0 of Verge</div>
-        <div class="cert-issuer">Unstop — Apr 2026</div>
-      </div>
-      <span class="tag">Team Leadership</span>
-    </div>
-    <div class="cert-item">
-      <div class="cert-year">2026</div>
-      <div>
-        <div class="cert-name">Spring School — Sports Tech, ML &amp; Data Analytics</div>
-        <div class="cert-issuer">IIT Delhi × University of Exeter × SAI — Mar 2026</div>
-      </div>
-      <span class="tag">ML / Data</span>
-    </div>
-    <div class="cert-item">
-      <div class="cert-year">2026</div>
-      <div>
-        <div class="cert-name">100 Days of Code: Python Pro Bootcamp</div>
-        <div class="cert-issuer">Udemy — Mar 2026</div>
-      </div>
-      <span class="tag">Python</span>
-    </div>
-    <div class="cert-item">
-      <div class="cert-year">2025</div>
-      <div>
-        <div class="cert-name">Gen-AI &amp; Prompt Engineering Workshop</div>
-        <div class="cert-issuer">HackwithIndia — Oct 2025</div>
-      </div>
-      <span class="tag">Gen-AI</span>
-    </div>
-    <div class="cert-item">
-      <div class="cert-year">2025</div>
-      <div>
-        <div class="cert-name">Smart India Hackathon (SIH) 2025</div>
-        <div class="cert-issuer">CIIE, SRM University Delhi-NCR — Sep 2025</div>
-      </div>
-      <span class="tag">Hackathon</span>
-    </div>
-    <div class="cert-item">
-      <div class="cert-year">2025</div>
-      <div>
-        <div class="cert-name">SRM Builds 6.0 of Verge</div>
-        <div class="cert-issuer">Unstop — Mar 2025</div>
-      </div>
-      <span class="tag">Tech Fest</span>
-    </div>
+  <div class="skills">
+    <div class="tile skill-group reveal"><h4 class="mono"><i data-lucide="cpu" width="15" height="15"></i>CS Fundamentals</h4><div class="pills"><span class="pill">Data Structures &amp; Algorithms</span><span class="pill">OOP</span><span class="pill">DBMS</span><span class="pill">Operating Systems</span></div></div>
+    <div class="tile skill-group reveal d1"><h4 class="mono"><i data-lucide="code-2" width="15" height="15"></i>Languages</h4><div class="pills"><span class="pill">Python</span><span class="pill">TypeScript</span><span class="pill">JavaScript</span><span class="pill">SQL</span><span class="pill">HTML / CSS</span></div></div>
+    <div class="tile skill-group reveal d2"><h4 class="mono"><i data-lucide="layout-template" width="15" height="15"></i>Frontend &amp; Mobile</h4><div class="pills"><span class="pill">React</span><span class="pill">Vite</span><span class="pill">React Native (Expo)</span><span class="pill">Tauri</span><span class="pill">Capacitor</span></div></div>
+    <div class="tile skill-group reveal"><h4 class="mono"><i data-lucide="server" width="15" height="15"></i>Backend</h4><div class="pills"><span class="pill">Node.js</span><span class="pill">Express</span><span class="pill">Socket.IO</span><span class="pill">FastAPI</span><span class="pill">Flask</span><span class="pill">REST APIs</span><span class="pill">Auth &amp; Security</span></div></div>
+    <div class="tile skill-group reveal d1"><h4 class="mono"><i data-lucide="database" width="15" height="15"></i>Data</h4><div class="pills"><span class="pill">PostgreSQL</span><span class="pill">Prisma</span><span class="pill">Redis</span><span class="pill">MongoDB</span><span class="pill">Firebase</span><span class="pill">SQLite</span></div></div>
+    <div class="tile skill-group reveal d2"><h4 class="mono"><i data-lucide="scan-eye" width="15" height="15"></i>Computer Vision</h4><div class="pills"><span class="pill">OpenCV</span><span class="pill">MediaPipe</span><span class="pill">YOLOv8</span><span class="pill">Face Recognition</span><span class="pill">Object Tracking</span><span class="pill">Pose Estimation</span></div></div>
+    <div class="tile skill-group reveal"><h4 class="mono"><i data-lucide="brain-circuit" width="15" height="15"></i>AI Engineering</h4><div class="pills"><span class="pill">LLM Integration</span><span class="pill">AI Agents</span><span class="pill">Memory Architectures</span><span class="pill">Prompt Engineering</span><span class="pill">Recommendation Systems</span></div></div>
+    <div class="tile skill-group reveal d1"><h4 class="mono"><i data-lucide="wrench" width="15" height="15"></i>Tools &amp; Ops</h4><div class="pills"><span class="pill">Git</span><span class="pill">Docker</span><span class="pill">Nginx</span><span class="pill">PM2</span><span class="pill">Postman</span><span class="pill">Claude Code</span></div></div>
+    <div class="tile skill-group reveal d2"><h4 class="mono"><i data-lucide="compass" width="15" height="15"></i>Product</h4><div class="pills"><span class="pill">Customer Discovery</span><span class="pill">Sales</span><span class="pill">MVP Development</span><span class="pill">System Architecture</span></div></div>
+    
   </div>
 </section>
 
 <!-- EDUCATION -->
-<section id="education">
-  <div class="section-label">07 — Education</div>
-  <h2 class="section-title reveal">Schooling</h2>
+<section class="block" id="education">
+  <div class="section-head">
+    <div>
+      <div class="kicker mono">05 — Education &amp; credentials</div>
+      <h2 class="section-title reveal">Always <span class="outline">learning</span></h2>
+    </div>
+  </div>
+  <div class="two-col">
+    <div class="tile list-tile reveal">
+      <h4 class="mono">Education</h4>
+      <div class="li highlight"><div><b>SRM University, Sonipat</b><small>B.Tech, Artificial Intelligence &amp; Data Science (in collaboration with IBM)</small></div><span class="when">2024 — 2028</span></div>
+      <div class="li"><div><b>British International College</b><small>High School · Johannesburg, South Africa</small></div><span class="when">2019 — 2024</span></div>
+      <div class="li"><div><b>Lotus Valley International School</b><small>Middle School · Gurugram, India</small></div><span class="when">2016 — 2019</span></div>
+      <div class="li"><div><b>Global Indian International School</b><small>Primary School · Singapore</small></div><span class="when">2014 — 2016</span></div>
+    </div>
+    <div class="tile list-tile reveal d1">
+      <h4 class="mono">Credentials</h4>
+      <div class="li"><div><b>SRM Builds 7.0 of Verge</b><small>Unstop · Team leadership</small></div><span class="when">Apr 2026</span></div>
+      <div class="li"><div><b>Spring School: Sports Tech, ML &amp; Data Analytics</b><small>IIT Delhi × University of Exeter × SAI</small></div><span class="when">Mar 2026</span></div>
+      <div class="li"><div><b>100 Days of Code: Python Pro Bootcamp</b><small>Udemy</small></div><span class="when">Mar 2026</span></div>
+      <div class="li"><div><b>Gen-AI &amp; Prompt Engineering Workshop</b><small>HackwithIndia</small></div><span class="when">Oct 2025</span></div>
+      <div class="li"><div><b>Smart India Hackathon (SIH) 2025</b><small>CIIE, SRM University Delhi-NCR</small></div><span class="when">Sep 2025</span></div>
+      <div class="li"><div><b>SRM Builds 6.0 of Verge</b><small>Unstop · Tech fest</small></div><span class="when">Mar 2025</span></div>
+    </div>
+  </div>
 
-  <div class="edu-list reveal">
-    <div class="edu-item">
-      <div>
-        <div class="edu-school">SRM University, Sonipat</div>
-        <div class="edu-degree">B.Tech — Artificial Intelligence</div>
-        <div class="edu-location">Haryana, India</div>
-      </div>
-      <div class="edu-date">Aug 2024 — Aug 2028</div>
-    </div>
-    <div class="edu-item">
-      <div>
-        <div class="edu-school">British International College</div>
-        <div class="edu-degree">High School</div>
-        <div class="edu-location">Johannesburg, South Africa</div>
-      </div>
-      <div class="edu-date">2019 — 2024</div>
-    </div>
-    <div class="edu-item">
-      <div>
-        <div class="edu-school">Lotus Valley International School</div>
-        <div class="edu-degree">Middle School</div>
-        <div class="edu-location">Gurugram, India</div>
-      </div>
-      <div class="edu-date">2016 — 2019</div>
-    </div>
-    <div class="edu-item">
-      <div>
-        <div class="edu-school">Global Indian International School</div>
-        <div class="edu-degree">Primary School</div>
-        <div class="edu-location">Singapore</div>
-      </div>
-      <div class="edu-date">2014 — 2016</div>
-    </div>
+  <div class="section-head" style="margin-top: 72px; margin-bottom: 24px;">
+    <div class="kicker mono" style="margin: 0;">Beyond code</div>
+  </div>
+  <div class="beyond reveal">
+    <span class="chip"><i data-lucide="code-2" width="16" height="16"></i><strong>3+ hackathons</strong> incl. Smart India Hackathon 2025</span>
+    <span class="chip"><i data-lucide="users" width="16" height="16"></i><strong>High School Treasurer</strong>, Student Leadership Council</span>
+    <span class="chip"><i data-lucide="globe" width="16" height="16"></i>Studied in <strong>5 countries</strong>: Singapore, India, South Africa, France &amp; Spain</span>
+    <span class="chip"><i data-lucide="medal" width="16" height="16"></i><strong>Gold medal</strong> in horse riding</span>
+    <span class="chip"><i data-lucide="plane" width="16" height="16"></i><strong>Solo backpacking</strong> across Vietnam</span>
+    <span class="chip"><i data-lucide="trophy" width="16" height="16"></i>College <strong>basketball, table tennis &amp; chess</strong></span>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-  <div class="section-label" style="justify-content:center;">08 — Contact</div>
-  <div class="contact-big reveal">
-    Let's Build<br/>Something.
-  </div>
-  <p class="contact-sub reveal reveal-delay-1">
-    Open to collaborations, startup conversations, and AI &amp; product engineering work. Based in South Africa — working globally.
-  </p>
-  <div class="contact-links reveal reveal-delay-2">
-    <a href="mailto:kshitij.junnarkar@gmail.com" class="contact-link primary">
-      <i data-lucide="mail" width="14" height="14"></i>Email Me
-    </a>
-    <a href="https://github.com/KingKj-13" target="_blank" class="contact-link">
-      <i data-lucide="github" width="14" height="14"></i>GitHub
-    </a>
-    <a href="https://www.linkedin.com/in/kshitij-junnarkar-96aa20301/" target="_blank" class="contact-link">
-      <i data-lucide="linkedin" width="14" height="14"></i>LinkedIn
-    </a>
+<section class="block" id="contact">
+  <div class="contact-card reveal">
+    <div class="kicker mono" style="justify-content: center;">06 — Contact</div>
+    <div class="contact-big">Let's build<br/><span>something.</span></div>
+    <p class="contact-sub">Looking for a software engineering internship for summer 2027. Also open to collaborations and startup conversations. Based in Johannesburg, working remotely with anyone.</p>
+    <div class="contact-links">
+      <a href="mailto:kshitij.junnarkar@gmail.com" class="btn btn-primary"><i data-lucide="mail" width="14" height="14"></i>kshitij.junnarkar@gmail.com</a>
+      <a href="https://github.com/KingKj-13" target="_blank" rel="noopener" class="btn"><i data-lucide="github" width="14" height="14"></i>GitHub</a>
+      <a href="https://www.linkedin.com/in/kshitij-junnarkar-96aa20301/" target="_blank" rel="noopener" class="btn"><i data-lucide="linkedin" width="14" height="14"></i>LinkedIn</a>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-left">© <span id="footer-year"></span> Kshitij Junnarkar</div>
-  <div class="footer-logo">KJ</div>
-  <div class="footer-right">AI Engineer &amp; Founder</div>
+  <span>© <span id="footer-year"></span> Kshitij Junnarkar</span>
+  <span>Product Engineer &amp; Founder of EMenu</span>
 </footer>
 
-<button id="to-top" aria-label="Back to top">
-  <i data-lucide="arrow-up" width="18" height="18"></i>
-</button>
+<button id="to-top" aria-label="Back to top"><i data-lucide="arrow-up" width="18" height="18"></i></button>
 
 <script>
-// ===== INIT ICONS =====
-lucide.createIcons();
-
-// ===== FOOTER YEAR =====
+if (window.lucide) lucide.createIcons();
 document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-// ===== LOADER =====
-const loader = document.getElementById('loader');
-loader.classList.add('fade-out');
-setTimeout(() => {
-  loader.style.display = 'none';
-  document.body.style.overflow = '';
-}, 2700);
-document.body.style.overflow = 'hidden';
-
-// ===== THEME TOGGLE =====
-const toggleBtn = document.getElementById('theme-toggle');
-const html = document.documentElement;
-let isDark = true;
-toggleBtn.addEventListener('click', () => {
-  isDark = !isDark;
-  html.setAttribute('data-theme', isDark ? 'dark' : 'light');
-  toggleBtn.innerHTML = isDark
-    ? '<i data-lucide="sun" width="16" height="16"></i>'
-    : '<i data-lucide="moon" width="16" height="16"></i>';
-  lucide.createIcons();
+// Loader
+window.addEventListener('load', function () {
+  setTimeout(function () { document.getElementById('loader').classList.add('done'); }, 650);
 });
+setTimeout(function () { document.getElementById('loader').classList.add('done'); }, 2500);
 
-// ===== HAMBURGER =====
-const hamburger = document.getElementById('hamburger');
+// Mobile nav
 const mobileNav = document.getElementById('mobile-nav');
-hamburger.addEventListener('click', () => {
-  mobileNav.classList.toggle('open');
-});
-document.querySelectorAll('.mobile-link').forEach(link => {
-  link.addEventListener('click', () => mobileNav.classList.remove('open'));
-});
+document.getElementById('hamburger').addEventListener('click', function () { mobileNav.classList.toggle('open'); });
+mobileNav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { mobileNav.classList.remove('open'); }); });
 
-// ===== SCROLL REVEAL =====
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
+// Rotating headline
+const words = [
+  'a restaurant operating system.',
+  'AI that takes attendance from one video.',
+  'memory for conversational AI.',
+  'products people actually use.'
+];
+const wordEl = document.getElementById('rotator-word');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!reduceMotion) {
+  let wi = 0, ci = words[0].length, deleting = true;
+  function tick() {
+    const w = words[wi];
+    wordEl.textContent = w.slice(0, ci);
+    if (deleting) {
+      ci--;
+      if (ci < 0) { deleting = false; wi = (wi + 1) % words.length; ci = 0; }
+      setTimeout(tick, 28);
+    } else {
+      ci++;
+      if (ci > words[wi].length) { deleting = true; ci = words[wi].length; setTimeout(tick, 2200); return; }
+      setTimeout(tick, 55);
     }
-  });
-}, { threshold: 0.12 });
-reveals.forEach(el => observer.observe(el));
-
-// ===== SCROLL PROGRESS BAR =====
-const progressBar = document.getElementById('scroll-progress');
-function updateProgress() {
-  const h = document.documentElement;
-  const max = h.scrollHeight - h.clientHeight;
-  progressBar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  }
+  setTimeout(tick, 2600);
 }
-window.addEventListener('scroll', updateProgress, { passive: true });
-window.addEventListener('resize', updateProgress);
-updateProgress();
 
-// ===== BACK TO TOP =====
+// Reveal on scroll
+const io = new IntersectionObserver(function (entries) {
+  entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+// Count-up stats
+const countIO = new IntersectionObserver(function (entries) {
+  entries.forEach(function (e) {
+    if (!e.isIntersecting) return;
+    const el = e.target, end = +el.dataset.count, t0 = performance.now();
+    function step(t) {
+      const p = Math.min(1, (t - t0) / 1200);
+      el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step);
+    }
+    if (!reduceMotion) requestAnimationFrame(step);
+    countIO.unobserve(el);
+  });
+}, { threshold: 0.6 });
+document.querySelectorAll('[data-count]').forEach(function (el) { countIO.observe(el); });
+
+// Spotlight on tiles
+document.querySelectorAll('.tile').forEach(function (tile) {
+  tile.addEventListener('pointermove', function (ev) {
+    const r = tile.getBoundingClientRect();
+    tile.style.setProperty('--mx', (ev.clientX - r.left) + 'px');
+    tile.style.setProperty('--my', (ev.clientY - r.top) + 'px');
+  });
+});
+
+// Scroll progress, back-to-top, active nav
+const bar = document.getElementById('scroll-progress');
 const toTop = document.getElementById('to-top');
 window.addEventListener('scroll', function () {
-  toTop.classList.toggle('show', window.scrollY > 600);
+  const h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+  bar.style.width = (max > 0 ? h.scrollTop / max * 100 : 0) + '%';
+  toTop.classList.toggle('show', window.scrollY > 700);
 }, { passive: true });
-toTop.addEventListener('click', function () {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// ===== SCROLLSPY (active nav link) =====
-const navLinks = Array.prototype.slice.call(document.querySelectorAll('nav a[href^="#"]'));
-const spySections = navLinks
-  .map(function (a) { return document.querySelector(a.getAttribute('href')); })
-  .filter(Boolean);
+toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+const navLinks = Array.prototype.slice.call(document.querySelectorAll('nav a'));
 const spy = new IntersectionObserver(function (entries) {
   entries.forEach(function (e) {
-    if (e.isIntersecting) {
-      const id = '#' + e.target.id;
-      navLinks.forEach(function (a) {
-        a.classList.toggle('active', a.getAttribute('href') === id);
-      });
-    }
+    if (e.isIntersecting) navLinks.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id); });
   });
-}, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-spySections.forEach(function (s) { spy.observe(s); });
-
-// ===== PROJECT FILTERS =====
-const filterBtns = Array.prototype.slice.call(document.querySelectorAll('.filter-btn'));
-const projectCards = Array.prototype.slice.call(document.querySelectorAll('.project-card'));
-const filterCountEl = document.getElementById('filter-count');
-function applyFilter(cat) {
-  let shown = 0;
-  projectCards.forEach(function (card) {
-    const cats = (card.getAttribute('data-cat') || '').split(' ');
-    const match = cat === 'all' || cats.indexOf(cat) !== -1;
-    card.classList.toggle('is-hidden', !match);
-    if (match) { card.classList.add('visible'); shown++; }
-  });
-  if (filterCountEl) {
-    filterCountEl.textContent = shown + (shown === 1 ? ' project' : ' projects');
-  }
-}
-filterBtns.forEach(function (btn) {
-  btn.addEventListener('click', function () {
-    filterBtns.forEach(function (b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    applyFilter(btn.getAttribute('data-filter'));
-  });
-});
-if (filterCountEl) {
-  filterCountEl.textContent = projectCards.length + ' projects';
-}
-
+}, { rootMargin: '-45% 0px -50% 0px' });
+navLinks.forEach(function (a) { const s = document.querySelector(a.getAttribute('href')); if (s) spy.observe(s); });
 </script>
-
 </body>
 </html>
